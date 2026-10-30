@@ -1,30 +1,54 @@
 {
   "eager": {
     "chunks": 6,
-    "raw": 13165,
-    "gzip": 6399
+    "raw": 14156,
+    "gzip": 6794
   },
   "effects": {
     "hello": {
-      "chunks": 12,
-      "ownGzip": 16194,
-      "gzip": 28809,
-      "raw": 74410,
+      "chunks": 13,
+      "ownGzip": 1041,
+      "gzip": 29189,
+      "raw": 74551,
       "files": [
         "assets/colour-caps-rW91Sa46.js",
         "assets/dose-D7hN0jZo.js",
-        "assets/fireworks-Cj1zU1Xw.js",
+        "assets/fireworks-CL-5M0NJ.js",
         "assets/fullscreen-BDXEFvdz.js",
         "assets/gamut-COkJmrKM.js",
         "assets/hash-bWx0F85T.js",
-        "assets/hello-D29PQrnY.js",
+        "assets/hello-DDD7hc5O.js",
         "assets/oklab-CS7oj3eq.js",
         "assets/profiler-Bi27xYp-.js",
         "assets/shader-xzRCRHTt.js",
+        "assets/tail-D1HLsylU.js",
         "assets/thinfilm-Ci8F6ZWx.js",
         "assets/types-ci2WwWg0.js"
       ],
-      "gzipKb": 28.1
+      "gzipKb": 28.5
+    },
+    "peony-display": {
+      "chunks": 14,
+      "ownGzip": 4149,
+      "gzip": 33294,
+      "raw": 83611,
+      "files": [
+        "assets/colour-caps-rW91Sa46.js",
+        "assets/display-D1Q61LC1.js",
+        "assets/dose-D7hN0jZo.js",
+        "assets/fullscreen-BDXEFvdz.js",
+        "assets/gamut-COkJmrKM.js",
+        "assets/hash-bWx0F85T.js",
+        "assets/oklab-CS7oj3eq.js",
+        "assets/peony-display-BpJ3tGU_.js",
+        "assets/profiler-Bi27xYp-.js",
+        "assets/shader-xzRCRHTt.js",
+        "assets/tail-D1HLsylU.js",
+        "assets/thinfilm-Ci8F6ZWx.js",
+        "assets/types-ci2WwWg0.js",
+        "assets/wide-gamut-Ctdu4uAA.js"
+      ],
+      "gzipKb": 32.5
     }
   }
 }

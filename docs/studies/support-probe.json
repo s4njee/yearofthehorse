@@ -1,0 +1,51 @@
+{
+  "measuredAt": "2026-10-30T06:56:12.994Z",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+  "adapter": {},
+  "features": {
+    "float32-filterable": true,
+    "float32-blendable": true,
+    "timestamp-query": true,
+    "shader-f16": true,
+    "rg11b10ufloat-renderable": true
+  },
+  "limits": {
+    "maxStorageBuffersInVertexStage": 10,
+    "maxStorageBuffersPerShaderStage": 10,
+    "maxStorageBufferBindingSize": 4294967292,
+    "maxBufferSize": 4294967292
+  },
+  "media": {
+    "p3": false,
+    "rec2020": false,
+    "hdr": false
+  },
+  "canvases": {
+    "p3": {
+      "ok": true,
+      "colorSpace": "display-p3",
+      "toneMapping": "standard",
+      "format": "bgra8unorm"
+    },
+    "extended": {
+      "ok": true,
+      "colorSpace": "srgb",
+      "toneMapping": "extended",
+      "format": "rgba16float"
+    },
+    "extendedP3": {
+      "ok": true,
+      "colorSpace": "display-p3",
+      "toneMapping": "extended",
+      "format": "rgba16float"
+    }
+  },
+  "vertexStorage": {
+    "ok": true
+  },
+  "indirect": {
+    "ok": true,
+    "drawn": 300
+  },
+  "errors": []
+}

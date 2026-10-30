@@ -1,0 +1,190 @@
+{
+  "epic": "3",
+  "measuredAt": "2026-10-30T06:59:43.326Z",
+  "device": "Apple M1 Max",
+  "deviceClass": "apple-silicon",
+  "adapter": {
+    "vendor": "apple",
+    "architecture": "metal-3",
+    "device": "apple-m1-max",
+    "description": "Metal driver on macOS Version 26.6.2 (Build 25G83)"
+  },
+  "runtime": "Dawn (node webgpu bindings)",
+  "method": {
+    "metric": "GPU timestamps: frame span (first pass start to last pass end) and marginal cost per extra frame",
+    "warmupFrames": 12,
+    "rounds": 11,
+    "repeats": 4
+  },
+  "note": "Only this adapter was measured. spanMs includes the timing floor (see the \"(floor)\" rows); slopeMs is the cost of one more frame of the same work and is the number to compare by. A slope at or below zero means the work is below what this method can resolve.",
+  "rows": [
+    {
+      "effect": "(floor)",
+      "config": "one constant-colour pass",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.065536,
+      "slopeMs": 0.043690666666666676,
+      "slopeMinMs": 0.04369066666666666,
+      "slopeMaxMs": 0.06553600000000001,
+      "passes": 1,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "(tail)",
+      "config": "constant scene + bloom + output",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.720896,
+      "slopeMs": 0.6772053333333332,
+      "slopeMinMs": 0.6553599999999999,
+      "slopeMaxMs": 0.6990506666666668,
+      "passes": 11,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "peony-display",
+      "config": "default",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.524288,
+      "slopeMs": 0.393216,
+      "slopeMinMs": 0.3495253333333333,
+      "slopeMaxMs": 0.7427413333333334,
+      "passes": 11,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "peony-display",
+      "config": "preset display",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.524288,
+      "slopeMs": 0.3713706666666667,
+      "slopeMinMs": 0.3495253333333334,
+      "slopeMaxMs": 0.8082773333333334,
+      "passes": 11,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "peony-display",
+      "config": "preset quiet",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.524288,
+      "slopeMs": 0.3713706666666667,
+      "slopeMinMs": 0.32768,
+      "slopeMaxMs": 0.8082773333333334,
+      "passes": 11,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "peony-display",
+      "config": "preset close",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.524288,
+      "slopeMs": 0.3713706666666667,
+      "slopeMinMs": 0.3495253333333333,
+      "slopeMaxMs": 0.8301226666666667,
+      "passes": 11,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "peony-display",
+      "config": "preset distant",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.524288,
+      "slopeMs": 0.39321599999999995,
+      "slopeMinMs": 0.30583466666666664,
+      "slopeMaxMs": 0.8082773333333334,
+      "passes": 11,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "(floor)",
+      "config": "one constant-colour pass",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0,
+      "slopeMs": 0.065536,
+      "slopeMinMs": 0.02184533333333333,
+      "slopeMaxMs": 0.08738133333333332,
+      "passes": 1,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "(tail)",
+      "config": "constant scene + bloom + output",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.393216,
+      "slopeMs": 0.3058346666666667,
+      "slopeMinMs": 0.26214400000000004,
+      "slopeMaxMs": 0.3495253333333333,
+      "passes": 9,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "peony-display",
+      "config": "default",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.393216,
+      "slopeMs": 0.3495253333333333,
+      "slopeMinMs": 0.28398933333333337,
+      "slopeMaxMs": 0.393216,
+      "passes": 9,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "peony-display",
+      "config": "preset display",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.393216,
+      "slopeMs": 0.3058346666666667,
+      "slopeMinMs": 0.24029866666666666,
+      "slopeMaxMs": 0.3713706666666667,
+      "passes": 9,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "peony-display",
+      "config": "preset quiet",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.32768,
+      "slopeMs": 0.3058346666666667,
+      "slopeMinMs": 0.262144,
+      "slopeMaxMs": 0.3713706666666667,
+      "passes": 9,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "peony-display",
+      "config": "preset close",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.393216,
+      "slopeMs": 0.3058346666666667,
+      "slopeMinMs": 0.28398933333333337,
+      "slopeMaxMs": 0.32768,
+      "passes": 9,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "peony-display",
+      "config": "preset distant",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.458752,
+      "slopeMs": 0.3495253333333333,
+      "slopeMinMs": 0.32767999999999997,
+      "slopeMaxMs": 0.3713706666666667,
+      "passes": 9,
+      "metric": "gpu-timestamp"
+    }
+  ]
+}

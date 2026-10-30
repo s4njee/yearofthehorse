@@ -134,10 +134,16 @@ These findings shape this plan, so they need not be rediscovered.
 
 ## Findings so far
 
-- **A burst's expansion reads as a zoom.** The motion check fits one rigid move to everything it can track, and on a dark sky the only things it can track are the stars. With stars that slowed gently (drag 1.5 a second), a burst kept expanding for most of its life, and the median zoom read over the cap. Real stars of a few grams stop within about a second. With drag at 3 to 3.6 a second, three shells in the air at the default pass. The strong dose is held to four. This is a question for the safety rules as much as for the effect (2.8): is one burst in a corner of the view whole-field motion?
-- **Falling stars read as drift.** Stars falling at a third to half of the burst's radius a second read 0.06 to 0.1 screen widths a second of drift, over the cap of 0.05. Real stars fall at a tenth to a fifth of the radius a second, and at that speed the bursts pass.
+- **A burst's expansion reads as a zoom.** The motion check fits one rigid move to everything it can track, and on a dark sky the only things it can track are the stars. With stars that slowed gently (drag 1.5 a second), a burst kept expanding for most of its life, and the median zoom read over the cap. With drag at 3 to 3.6 a second, so that stars stop within about a second, three shells in the air at the default pass, and the strong dose is held to four. That is quicker than real stars: a burning star with the air's drag on it covers about 70% of its radius in the first second and keeps spreading until it burns out (2.1). This is a question for the safety rules as much as for the effect (2.8): is one burst in a corner of the view whole-field motion?
+- **Falling stars read as drift.** Stars falling at a third to half of the burst's radius a second read 0.06 to 0.1 screen widths a second of drift, over the cap of 0.05. Real stars fall at about a thirteenth to a sixth of the radius a second (2.1's model), and at that speed the bursts pass.
 - **A burst of thick streaks is a grating.** Drawn 1.6 pixels wide whatever the canvas size, 120 streaks in a 480 × 270 test frame (taken as a 1920-pixel view) read pattern `high`. Drawn at a width in proportion to the burst, a pixel wide with their light kept where they would be thinner, they read `none`.
 - **A red peony is a red flash.** One cell flashed red once in four seconds, as a strontium-red burst lit and burnt out in it: flash `low`, far under three a second. The fireworks are declared `low`, as Fire Temple's were.
+
+- **The motion check cannot see most of a display.** It needs 20 trackable blocks in a frame, and a few sparse bursts on a dark sky usually give fewer, so most readings are zero, not small. When a burst is big enough to track, its expansion reads 0.36 to 0.56 zoom doublings a second, four to five times the cap. `peony-display` passes because it is usually invisible to the check. Story 2.8 must settle what a burst is.
+- **Real stars keep spreading.** A burning star under quadratic drag covers 55 to 75% of its radius in the first second and keeps going until it burns out. `hello`'s stars stop sooner than real ones, which is part of why it passes.
+- **Most firework colours are outside sRGB, and two are outside P3.** Only strontium red and charcoal gold fit in Display P3. Barium green and copper blue are outside both, and are shown as the most saturated colours of their hues.
+- **A light maps to its hue's cusp.** The shared gamut mapping keeps lightness, as a surface should, and turned copper blue lavender; a light's brightness is free.
+- **Cost does not choose between stateless and stateful stars; what they can do does** (2.4).
 
 ## Overlaps and who owns what
 
@@ -243,20 +249,29 @@ Story format: `ID Title [tier] (size)`. Sizes: S ≈ a day or less, M ≈ a few 
 
 - [x] **1.2 `hello`** [A] (S) — the smallest effect: shells rising and breaking into stars, in one instanced pass with no compute and no state, with `dose` wired from the start.
 
-  _`hello`: up to four shells in the air, each a rising comet and 120 stars, every star a pure function of its shell, its index and the time, in one instanced draw of short streaks added into the HDR scene. Stars fly on the closed-form path of a ball with drag proportional to speed under gravity, leaving the break in directions spread over a sphere (a Fibonacci spiral), so a burst is a filled globe brightest at its rim. Peonies in strontium red, barium green, copper blue, sodium yellow and violet; one shell in three a gold chrysanthemum with long tails. Stars light over a quarter second and burn out each in its own time. The held frame shows each shell open at its own age. 0.55 ms on Dawn at 1080p and 0.71 ms in Chrome (0.70 to 0.73 over 3 loads), 28 kB gzipped: Tier A. It started in all eight browser-check views with no console errors. Flash `low` (one red cell, once in four seconds), pattern `none`, and motion inside the caps up to the strong dose. See Findings so far._
+  _`hello`: up to four shells in the air, each a rising comet and 120 stars, every star a pure function of its shell, its index and the time, in one instanced draw of short streaks added into the HDR scene. Stars fly on the closed-form path of a ball with drag proportional to speed under gravity, leaving the break in directions spread over a sphere (a Fibonacci spiral), so a burst is a filled globe brightest at its rim. Peonies in strontium red, barium green, copper blue, sodium yellow and violet; one shell in three a gold chrysanthemum with long tails. Stars light over a quarter second and burn out each in its own time. The held frame shows each shell open at its own age. 0.55 ms on Dawn at 1080p and 0.71 to 0.91 ms in Chrome over three browser checks, 28 kB gzipped: Tier A. It started in all eight browser-check views with no console errors. Flash `low` (one red cell, once in four seconds), pattern `none`, and motion inside the caps up to the strong dose. See Findings so far._
 
-- [ ] **1.3 Repository and CI** (S) — its own git repository (`s4njee/yearofthehorse`). The other families' repositories were created private and made public on the user's word, since private repositories cannot run Actions on this account. The CI workflow runs on software Vulkan (lint, format, typecheck, tests, build) and is green once.
-- [ ] **1.4 Deploy** (S) — Cloudflare Pages project `yearofthehorse` (classic, created with `--force`), and `npm run deploy`.
+- [x] **1.3 Repository and CI** (S) — its own git repository (`s4njee/yearofthehorse`). The other families' repositories were created private and made public on the user's word, since private repositories cannot run Actions on this account. The CI workflow runs on software Vulkan (lint, format, typecheck, tests, build) and is green once.
+
+  _Public repository `s4njee/yearofthehorse`, created private and made public on the user's word. CI green on a23195f once public (its first run, while private, failed in 3 s on the account's billing)._
+
+- [x] **1.4 Deploy** (S) — Cloudflare Pages project `yearofthehorse` (classic, created with `--force`), and `npm run deploy`.
+
+  _Live at <https://yearofthehorse.pages.dev>, deployed from a23195f (classic Pages project, created with `--force` from a scratch directory)._
+
 - [ ] **1.5 Posters, catalogue and the holofx site** (S) — posters from held frames, `catalogue.json`, and Year of the Horse in the holofx site's dropdown, lab and effect pages.
 
   _Poster for `hello` and `catalogue.json` done. Still to do: the holofx site._
 
-- [ ] **1.6 Support matrix delta** (S) — what this family leans on beyond Fire Temple's [support matrix](../firetemple/docs/support-matrix.md) and Wind Temple's [delta](../windtemple/docs/support-matrix.md):
+- [x] **1.6 Support matrix delta** (S) — what this family leans on beyond Fire Temple's [support matrix](../firetemple/docs/support-matrix.md) and Wind Temple's [delta](../windtemple/docs/support-matrix.md):
   - the `display-p3` canvas colour space, and `toneMapping: 'extended'` on an `rgba16float` canvas, for colours outside sRGB and lights past white;
   - instanced draws of tens of thousands of streaks, and the cost of a vertex-heavy pass against a compute splat (Star Temple's splat-cost study);
   - `dispatchWorkgroupsIndirect` and indirect draws for emitters whose counts change;
   - additive blending into `rgba16float` and what half-float drops (Moon Temple 1.6);
   - `float32-filterable`, for smoke velocity textures.
+
+  _[docs/support-matrix.md](docs/support-matrix.md), by `node experiments/support-probe.mjs` in headless Chrome 156 on this Mac. `display-p3` and extended tone mapping on `rgba16float` both configure (headless Chrome reports no P3 or HDR display, so the effect page uses sRGB there). Storage buffers in the vertex stage are offered, but compatibility mode has none by default, so `peony-display` reads its shells and tables from uniform buffers. An indirect draw with a count written in a compute pass drew exactly that many instances. `float32-filterable`, `float32-blendable`, `timestamp-query`, `shader-f16` and `rg11b10ufloat-renderable` are offered._
+
 - [x] **1.7 Points and glare** (S) — Moon Temple's energy-conserving points and glare, already in the copied tree from Star Temple's port. Tested as there.
 
   _Came with the scaffold (`src/gpu/points/`, `src/gpu/glare/`, `tests/points.test.ts`, `tests/glare.test.ts`), passing._
@@ -267,9 +282,21 @@ Story format: `ID Title [tier] (size)`. Sizes: S ≈ a day or less, M ≈ a few 
 ## Epic 2 — The fireworks engine
 
 - [ ] **2.1 The star model** [—] (M) — a star as a small sphere of composition burning from the outside in: its mass, its drag, its burn rate, and its light while it burns. Measured against 1.8's clips: how fast a 3-inch and a 6-inch shell's stars leave the break, how soon they stop, how far they fall, how long they burn. Tested: the closed-form path matches a small-step integration; the drag constant reproduces a clip's radius over time within 10%.
-- [ ] **2.2 Emission colour** [—] (M) — the visible spectra of the colour-giving species (SrCl and SrOH red, BaCl green, CuCl blue, the sodium D lines, CaCl and CaOH orange) and of incandescent metals and charcoal, integrated against the CIE 1931 observer to XYZ, then to linear Display P3 and sRGB, with what is outside sRGB mapped in OKLab (`gamut.wgsl`). Tested: sodium lands at 589 nm's chromaticity; every colour is inside P3; the sRGB mapping keeps hue within a few degrees. A table in the notes of each composition's colour in both spaces.
-- [ ] **2.3 Shells** [—] (M) — a shell as a burst charge and a pattern of stars: a sphere (warimono), a canister (less round, with a spread), a ring, a flat shape seen from an angle, and layers (a pistil inside a petal, the double-petalled yae-shin). Its break height, its timing fuse and its burst speed. A shell is a small record a page or a script can make, so a display is a list of shells (3.8).
-- [ ] **2.4 Stateless and stateful stars** [—] (M) — the closed-form stars of `hello`, generalised, against Fire Temple's GPU emitters, measured on the same shells: cost by star count, memory, what each can do (splitting and spawning need state), and what each does under pause, resize and scroll scrubbing. Decides which shells are stateless.
+
+  _`src/gpu/shells/star.ts`: a sphere of composition burning inwards, under quadratic drag (C_d 0.47) and gravity, as the reference (`integrateStar`). Its flight is tabulated once per star class by launch elevation (9) and time (48) in the star's own frame, and a shader places any star from four reads within 0.44% of the burst's radius (`tests/star.test.ts`). Interpolating positions between angles instead cut the chord and cost 1.9%; one sideways flight for every direction missed by 5 to 7%; the best constant linear drag (`hello`'s closed form) by 8%. With the starting classes (6, 10 and 12 mm stars at 50, 70 and 80 m/s), a star covers 55 to 75% of its radius in the first second and keeps spreading until it burns out, and falls at a thirteenth to a sixth of the radius a second. Not done: the comparison with video, which needs 1.8's clips._
+
+- [x] **2.2 Emission colour** [—] (M) — the visible spectra of the colour-giving species (SrCl and SrOH red, BaCl green, CuCl blue, the sodium D lines, CaCl and CaOH orange) and of incandescent metals and charcoal, integrated against the CIE 1931 observer to XYZ, then to linear Display P3 and sRGB, with what is outside sRGB mapped in OKLab (`gamut.wgsl`). Tested: sodium lands at 589 nm's chromaticity; every colour is inside P3; the sRGB mapping keeps hue within a few degrees. A table in the notes of each composition's colour in both spaces.
+
+  _`src/gpu/spectra/emission.ts`, with the table in [docs/studies/emission-colour.md](docs/studies/emission-colour.md). Bands from the pyrotechnic literature as Gaussians plus a blackbody continuum, integrated against Wyman, Sloan and Shirley's analytic fit of the CIE 1931 observer. Tested (`tests/spectra.test.ts`): the fit peaks at 1 at 555 nm; a 589 nm line lands within 0.01 of the locus; a 6 500 K blackbody within 0.006 of its chromaticity; every mapped colour is inside its gamut with its OKLCH hue kept; more continuum is paler. Strontium red, barium green, copper blue, sodium, calcium and the violet are outside sRGB; only strontium red and charcoal gold fit in P3. A light is mapped to the cusp of its hue, not at fixed lightness, which turned copper blue lavender._
+
+- [x] **2.3 Shells** [—] (M) — a shell as a burst charge and a pattern of stars: a sphere (warimono), a canister (less round, with a spread), a ring, a flat shape seen from an angle, and layers (a pistil inside a petal, the double-petalled yae-shin). Its break height, its timing fuse and its burst speed. A shell is a small record a page or a script can make, so a display is a list of shells (3.8).
+
+  _`src/gpu/shells/shell.ts`: a shell record (launch, rise, break position, class, star count, composition, pistil, sphere or canister packing, trail, seed) and `programme`, a looping list from a seed with breaks at least a gap apart. `activeShells` picks the shells in the air (across the loop's seam), `heldTime` a moment with no break near and a usual number of shells open, and `packShells` and `packTables` the GPU layout. Tested in `tests/shell.test.ts`. Rings and flat shapes are left to 3.3 and 3.6; layered double-petalled shells to 3.5._
+
+- [x] **2.4 Stateless and stateful stars** [—] (M) — the closed-form stars of `hello`, generalised, against Fire Temple's GPU emitters, measured on the same shells: cost by star count, memory, what each can do (splitting and spawning need state), and what each does under pause, resize and scroll scrubbing. Decides which shells are stateless.
+
+  _[docs/studies/stars-state.md](docs/studies/stars-state.md), by `experiments/stars-state.test.ts`. On Dawn, 10 000 stars cost 0.07 ms either way, and up to 200 000 the difference is inside the harness's noise. A star stepped once a frame drifts 1.1% of the radius from its path at 60 fps and 4.6% at 15 fps; the table is exact at any rate and keeps nothing. Stateless for every shell whose stars only fly and burn; stateful (Fire Temple's emitters) for crossettes, crackle, glitter, sparklers and stars the wind moves._
+
 - [ ] **2.5 Trails** [—] (M) — the eye and the camera (Decisions): a star's past path recomputed and drawn as a streak whose light fades with the persistence of vision, or as an exposure whose length is the shutter's. Tested: a streak's light is the same at 30 and 120 fps; a camera trail's length is the shutter's within a frame.
 - [ ] **2.6 Smoke** [—] (M) — each break leaves a puff in a low-resolution 2D fluid, which drifts in the 3D wind and thins; later breaks light it from inside, and it hides the stars behind it. Measured: how much a finale's smoke dims later bursts, and its cost at three grid sizes.
 - [ ] **2.7 Glitter, crackle and strobe** [—] (M) — the stars that are not steady: glitter (sparks that flash after a delay), crackle (microstars that burst), strobe (stars that blink at several hertz). Built on the band-limited flicker signal. Measured: the rates at which each trips the flash rule over a full-width display.
@@ -277,7 +304,10 @@ Story format: `ID Title [tier] (size)`. Sizes: S ≈ a day or less, M ≈ a few 
 
 ## Epic 3 — Shells and displays
 
-- [ ] **3.1 `peony-display`** [A] (S) — the drop-in display: a few peonies and chrysanthemums at a time behind a hero, with the star model and colour of 2.1 and 2.2.
+- [x] **3.1 `peony-display`** [A] (S) — the drop-in display: a few peonies and chrysanthemums at a time behind a hero, with the star model and colour of 2.1 and 2.2.
+
+  _`peony-display`: a looping programme of peonies, pistils and gold chrysanthemums on 2.1's tables, 2.2's colours (in P3 where the canvas is) and 2.3's records, eight shells at most in one instanced draw. Play starts from the held moment, so the page opens with shells open. 0.39 ms on Dawn and 0.80 ms in Chrome at 1080p, 32.5 kB gzipped: Tier A. Flash `low` declared, pattern `none`, motion inside the caps at the default and the strong dose by the analyser, but see Findings so far: the analyser cannot see most of the display. `close` is declared over the motion caps. It sits low in a tall hero (11.4)._
+
 - [ ] **3.2 `willow`** [A] (S) — gold willow and kamuro: heavy charcoal stars that burn long, droop and hang like a weeping willow, the slowest and calmest shell.
 - [ ] **3.3 `palm-and-ring`** [A] (S) — a palm's few thick comets with a rising tail, and rings at random tilts, as ellipses.
 - [ ] **3.4 `crossette`** [B] (S) — stars that split in four, each split a cross, on the stateful emitters.

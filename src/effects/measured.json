@@ -8,6 +8,17 @@
         "ms": 0.55
       }
     ],
-    "bundleKb": 28.1
+    "bundleKb": 28.5
+  },
+  "peony-display": {
+    "gpuMs": [
+      {
+        "device": "Apple M1 Max",
+        "deviceClass": "apple-silicon",
+        "method": "marginal",
+        "ms": 0.39
+      }
+    ],
+    "bundleKb": 32.5
   }
 }

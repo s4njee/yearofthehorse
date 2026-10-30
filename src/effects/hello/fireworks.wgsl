@@ -79,7 +79,7 @@ fn nothing() -> Varying {
   let chrysanthemum = more.x < 0.33;
   let colour = select(SALTS[u32(more.y * 5.0) % 5u], SALTS[5], chrysanthemum);
   // Stars fall at the speed where the air's drag holds their weight: gravity / drag, about a
-  // sixth of the burst's radius a second, as real stars of a few grams do. Faster reads as
+  // sixth of the burst's radius a second, as burning stars do (story 2.1). Faster reads as
   // the whole sky sliding down (the motion check's drift).
   let drag = select(3.0, 3.6, chrysanthemum);
   let gravity = select(0.15, 0.22, chrysanthemum) * size * drag;

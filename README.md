@@ -54,6 +54,9 @@ src/gpu/points.ts, glare/,  Moon Temple's energy-conserving points, aperture and
   optics/
 src/gpu/sim/, volume/       Fire Temple's 2D and 3D stable fluids, obstacles and volume ray-march kernel
 src/gpu/post/               the HDR tail: bloom, tonemap, colour stage, and Moon Temple's night vision
+src/gpu/shells/             the star model (a burning sphere under quadratic drag, tabulated by angle and
+                            time) and shells as records in a programme
+src/gpu/spectra/            emission spectra of star compositions, to sRGB and Display P3 as lights
 src/gpu/hash.ts             twins of the shader hashes, so CPU models make the same random choices
 src/gpu/safety/             dose, the pattern analyser, motion estimate, colour caps and the start gate's rules
 src/gpu/colour/             OKLab and OKLCH, palettes, Display P3
