@@ -1,0 +1,75 @@
+{
+  "name": "@mk7s/yearofthehorse",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "A research gallery of WebGPU grass, plants and ground effects (realistic grass, leaves and flowers in the wind, roots and vines, sand, soil and rock) with live demos, readable source, notes and practicality scorecards.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s4njee/yearofthehorse.git"
+  },
+  "homepage": "https://github.com/s4njee/yearofthehorse",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "sideEffects": false,
+  "files": [
+    "lib",
+    "types"
+  ],
+  "exports": {
+    ".": {
+      "types": "./types/lib/index.d.ts",
+      "import": "./lib/index.js"
+    },
+    "./effects/*": {
+      "types": "./types/effects/*/index.d.ts",
+      "import": "./lib/effects/*/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run typecheck && vite build && node scripts/check-bundle.mjs",
+    "prebuild": "npm run registry",
+    "predev": "npm run registry",
+    "registry": "node scripts/registry.mjs",
+    "clean:types": "node -e \"require('node:fs').rmSync('types', { recursive: true, force: true })\"",
+    "lib:sizes": "node scripts/lib-sizes.mjs",
+    "build:lib": "vite build --config vite.lib.config.ts && npm run clean:types && tsc -p tsconfig.lib.json && node scripts/rewrite-dts.mjs",
+    "catalogue": "node scripts/catalogue.mjs",
+    "study": "node scripts/study.mjs",
+    "shot": "node scripts/shot.mjs",
+    "browser-check": "node scripts/browser-check.mjs",
+    "posters": "node scripts/posters.mjs",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.node.json",
+    "lint": "eslint .",
+    "format": "prettier --write --ignore-unknown \"src/**\" \"tests/**\" \"scripts/**\" \"*.{ts,js,json,html}\"",
+    "format:check": "prettier --check --ignore-unknown \"src/**\" \"tests/**\" \"scripts/**\" \"*.{ts,js,json,html}\"",
+    "test": "vitest run",
+    "deploy": "npm run build && npx --yes wrangler@4 pages deploy dist --project-name yearofthehorse --branch main"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@tweakpane/core": "^2.0.5",
+    "@types/node": "^26.6.4",
+    "@webgpu/types": "^0.1.74",
+    "eslint": "^10.12.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.9.9",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.71.1",
+    "vite": "^8.3.3",
+    "vitest": "^5.0.3",
+    "webgpu": "^0.6.2"
+  },
+  "dependencies": {
+    "@mk7s/hologpu-temple-core": "^0.1.1",
+    "marked": "^18.1.0",
+    "shiki": "^4.5.0",
+    "tweakpane": "^4.0.5",
+    "wgpu-matrix": "^3.4.2"
+  }
+}

@@ -1,0 +1,245 @@
+.yh-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--yh-space-5);
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: var(--yh-space-6) var(--yh-space-5);
+}
+
+.yh-gallery__intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--yh-space-2);
+  max-width: 68ch;
+}
+
+.yh-gallery__heading {
+  font-size: var(--yh-text-xl);
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+/* Filters */
+
+.yh-gallery__filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--yh-space-4);
+}
+
+.yh-gallery__tiers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--yh-space-3);
+}
+
+.yh-gallery__tier {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--yh-space-1);
+  padding: var(--yh-space-3);
+  border: 1px solid var(--yh-border);
+  border-radius: var(--yh-radius-m);
+  background: var(--yh-surface);
+  color: var(--yh-text);
+  font: inherit;
+  font-size: var(--yh-text-s);
+  text-align: left;
+  cursor: pointer;
+}
+
+.yh-gallery__tier:hover {
+  background: var(--yh-surface-2);
+}
+
+.yh-gallery__tier[aria-pressed='true'] {
+  border-color: var(--yh-accent);
+  background: color-mix(in srgb, var(--yh-accent) 12%, var(--yh-surface));
+}
+
+.yh-gallery__tier-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-self: stretch;
+  gap: var(--yh-space-1) var(--yh-space-2);
+}
+
+.yh-gallery__tier-name {
+  font-size: var(--yh-text-m);
+  font-weight: 600;
+}
+
+.yh-gallery__tier-count {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.yh-gallery__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--yh-space-3) var(--yh-space-4);
+}
+
+.yh-gallery__field {
+  display: flex;
+  align-items: center;
+  gap: var(--yh-space-2);
+}
+
+.yh-gallery__select {
+  min-height: 32px;
+  max-width: 100%;
+  padding: 0 var(--yh-space-2);
+  border: 1px solid var(--yh-border);
+  border-radius: var(--yh-radius-m);
+  background: var(--yh-surface);
+  color: var(--yh-text);
+  font: inherit;
+  font-size: var(--yh-text-s);
+  cursor: pointer;
+}
+
+.yh-gallery__select:hover {
+  background: var(--yh-surface-2);
+}
+
+.yh-gallery__count {
+  flex: 1;
+  min-width: 8ch;
+}
+
+/* Results */
+
+.yh-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: var(--yh-space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* `hidden` must win over the display values set on these elements. */
+.yh-gallery [hidden] {
+  display: none;
+}
+
+.yh-gallery__item {
+  display: flex;
+  min-width: 0;
+}
+
+.yh-gallery__card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--yh-text);
+  text-decoration: none;
+}
+
+.yh-gallery__card:hover {
+  border-color: var(--yh-text-muted);
+}
+
+.yh-gallery__card:hover .yh-gallery__name {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* Until a canvas is live (or if it never starts) the thumbnail is a flat tier-tinted block. */
+.yh-gallery__thumb {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-bottom: 1px solid var(--yh-border);
+  background: var(--yh-surface-2);
+}
+
+.yh-gallery__thumb[data-tier='A'] {
+  background: color-mix(in srgb, var(--yh-tier-a) 16%, var(--yh-surface-2));
+}
+
+.yh-gallery__thumb[data-tier='B'] {
+  background: color-mix(in srgb, var(--yh-tier-b) 16%, var(--yh-surface-2));
+}
+
+.yh-gallery__thumb[data-tier='C'] {
+  background: color-mix(in srgb, var(--yh-tier-c) 16%, var(--yh-surface-2));
+}
+
+.yh-gallery__poster,
+.yh-gallery__thumb .yh-host {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.yh-gallery__poster {
+  object-fit: cover;
+}
+
+.yh-gallery__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--yh-space-2);
+  padding: var(--yh-space-3) var(--yh-space-4) var(--yh-space-4);
+}
+
+.yh-gallery__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--yh-space-2);
+}
+
+.yh-gallery__head .yh-chip {
+  flex: none;
+}
+
+.yh-gallery__name {
+  min-width: 0;
+  font-size: var(--yh-text-m);
+  font-weight: 600;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.yh-gallery__summary {
+  font-size: var(--yh-text-s);
+}
+
+.yh-gallery__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--yh-space-1);
+  margin-top: auto;
+  padding-top: var(--yh-space-1);
+}
+
+.yh-gallery__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--yh-space-3);
+  padding: var(--yh-space-5);
+}
+
+@media (max-width: 720px) {
+  .yh-gallery {
+    padding: var(--yh-space-5) var(--yh-space-4);
+  }
+
+  .yh-gallery__tiers {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

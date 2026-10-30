@@ -1,0 +1,30 @@
+{
+  "eager": {
+    "chunks": 6,
+    "raw": 13165,
+    "gzip": 6399
+  },
+  "effects": {
+    "hello": {
+      "chunks": 12,
+      "ownGzip": 16194,
+      "gzip": 28809,
+      "raw": 74410,
+      "files": [
+        "assets/colour-caps-rW91Sa46.js",
+        "assets/dose-D7hN0jZo.js",
+        "assets/fireworks-Cj1zU1Xw.js",
+        "assets/fullscreen-BDXEFvdz.js",
+        "assets/gamut-COkJmrKM.js",
+        "assets/hash-bWx0F85T.js",
+        "assets/hello-D29PQrnY.js",
+        "assets/oklab-CS7oj3eq.js",
+        "assets/profiler-Bi27xYp-.js",
+        "assets/shader-xzRCRHTt.js",
+        "assets/thinfilm-Ci8F6ZWx.js",
+        "assets/types-ci2WwWg0.js"
+      ],
+      "gzipKb": 28.1
+    }
+  }
+}

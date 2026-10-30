@@ -1,0 +1,13 @@
+{
+  "hello": {
+    "gpuMs": [
+      {
+        "device": "Apple M1 Max",
+        "deviceClass": "apple-silicon",
+        "method": "marginal",
+        "ms": 0.55
+      }
+    ],
+    "bundleKb": 28.1
+  }
+}

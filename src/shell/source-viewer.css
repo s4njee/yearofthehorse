@@ -1,0 +1,107 @@
+.yh-source {
+  display: flex;
+  flex-direction: column;
+  gap: var(--yh-space-3);
+  min-width: 0;
+}
+
+.yh-source__bar,
+.yh-source__group,
+.yh-source__caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--yh-space-2);
+}
+
+.yh-source__related {
+  display: flex;
+  flex-direction: column;
+  gap: var(--yh-space-2);
+}
+
+.yh-source__related[hidden] {
+  display: none;
+}
+
+.yh-source__bar {
+  justify-content: space-between;
+  gap: var(--yh-space-3);
+}
+
+.yh-source__caption {
+  justify-content: space-between;
+  min-height: 20px;
+}
+
+.yh-source__caption > p {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.yh-source__status {
+  color: var(--yh-text-muted);
+  font-size: var(--yh-text-xs);
+}
+
+.yh-source__status[data-state='error'] {
+  color: var(--yh-tier-c);
+}
+
+.yh-source__button {
+  /* Rows of file names stay compact on narrow screens. */
+  min-height: 28px;
+  padding: 0 var(--yh-space-3);
+}
+
+/* Code block: shared by the source viewer and fenced blocks in the notes. */
+pre.yh-source__code {
+  margin: 0;
+  padding: var(--yh-space-3) 0;
+  overflow-x: auto;
+  border: 1px solid var(--yh-border);
+  border-radius: var(--yh-radius-m);
+  background: var(--yh-surface);
+  color: var(--yh-text);
+  font-family: var(--yh-font-mono);
+  font-size: var(--yh-text-s);
+  line-height: 1.6;
+  tab-size: 2;
+  counter-reset: yh-line;
+}
+
+pre.yh-source__code code {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  padding: 0;
+  background: none;
+  font: inherit;
+}
+
+.yh-source__line {
+  display: block;
+  padding-right: var(--yh-space-4);
+  white-space: pre;
+  counter-increment: yh-line;
+}
+
+/* The gutter stays put while long lines scroll underneath it. */
+.yh-source__line::before {
+  content: counter(yh-line);
+  display: inline-block;
+  position: sticky;
+  left: 0;
+  min-width: calc(var(--yh-source-digits, 3) * 1ch + var(--yh-space-3) + var(--yh-space-2));
+  margin-right: var(--yh-space-3);
+  padding-left: var(--yh-space-3);
+  padding-right: var(--yh-space-2);
+  background: var(--yh-surface);
+  color: var(--yh-text-muted);
+  text-align: right;
+  user-select: none;
+}
+
+.yh-source__line > span {
+  color: light-dark(var(--shiki-light), var(--shiki-dark));
+}

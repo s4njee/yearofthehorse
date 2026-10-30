@@ -1,0 +1,254 @@
+/*
+ * Design tokens and the few primitives every shell component shares.
+ * The effects carry the page: chrome stays quiet, flat, and low-contrast against them.
+ * Components use these tokens only; no new colours, radii, or font sizes elsewhere.
+ *
+ * Light and dark equally: fireworks and neon are night natives, lanterns and festival light are
+ * tested over both. Neutrals are a little indigo, like a city sky at night.
+ * The accent is the only gold (a willow shell's charcoal sparks); tier colours stay away from it.
+ */
+
+:root {
+  color-scheme: dark;
+
+  --yh-font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --yh-font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --yh-text-xs: 0.75rem;
+  --yh-text-s: 0.8125rem;
+  --yh-text-m: 0.9375rem;
+  --yh-text-l: 1.25rem;
+  --yh-text-xl: 1.75rem;
+
+  --yh-space-1: 4px;
+  --yh-space-2: 8px;
+  --yh-space-3: 12px;
+  --yh-space-4: 16px;
+  --yh-space-5: 24px;
+  --yh-space-6: 40px;
+
+  --yh-radius-s: 4px;
+  --yh-radius-m: 8px;
+  --yh-radius-l: 14px;
+
+  --yh-bg: light-dark(#f5f4f7, #09080d);
+  --yh-surface: light-dark(#fdfcfe, #111017);
+  --yh-surface-2: light-dark(#e8e6ee, #1a1823);
+  --yh-border: light-dark(#d2cfdb, #2c2937);
+  --yh-text: light-dark(#121019, #efedf4);
+  --yh-text-muted: light-dark(#5b5768, #a19cb0);
+  --yh-accent: light-dark(#8a6100, #ffc94d);
+  --yh-on-accent: light-dark(#fdfcfe, #1c1300);
+  --yh-focus: light-dark(#8a6100, #ffdc8a);
+
+  /* Practicality tiers: A drop-in, B feature, C showpiece. Hues clear of the gold accent:
+     green, teal and rose (Tier B moved from violet to teal, as in Moon Temple; Tier C from
+     amber to rose, which sat beside the gold). */
+  --yh-tier-a: light-dark(#1f7a4d, #6fd6a0);
+  --yh-tier-b: light-dark(#0b6f78, #5fcfd8);
+  --yh-tier-c: light-dark(#a3364a, #ff8fa3);
+
+  --yh-header-height: 52px;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='auto'] {
+  color-scheme: light dark;
+}
+
+/*
+ * A subtree can be shown as the other kind of page (the effect stage does this, story 2.7): the
+ * tokens are light-dark() values, so they follow whatever colour scheme the element has.
+ */
+[data-page='light'] {
+  color-scheme: light;
+}
+
+[data-page='dark'] {
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--yh-bg);
+  color: var(--yh-text);
+  font: var(--yh-text-m) / 1.5 var(--yh-font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--yh-accent);
+  text-underline-offset: 0.15em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--yh-focus);
+  outline-offset: 2px;
+}
+
+/* Numbers and code: tabular so readouts do not jitter as they update. */
+.yh-data {
+  font-family: var(--yh-font-mono);
+  font-size: var(--yh-text-s);
+  font-variant-numeric: tabular-nums;
+}
+
+.yh-muted {
+  color: var(--yh-text-muted);
+}
+
+.yh-label {
+  color: var(--yh-text-muted);
+  font-size: var(--yh-text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.yh-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--yh-space-2);
+  min-height: 32px;
+  padding: 0 var(--yh-space-3);
+  border: 1px solid var(--yh-border);
+  border-radius: var(--yh-radius-m);
+  background: var(--yh-surface);
+  color: var(--yh-text);
+  font: inherit;
+  font-size: var(--yh-text-s);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.yh-button:hover {
+  background: var(--yh-surface-2);
+}
+
+.yh-button[aria-pressed='true'],
+.yh-button--primary {
+  border-color: var(--yh-accent);
+  background: var(--yh-accent);
+  color: var(--yh-on-accent);
+}
+
+.yh-button--quiet {
+  border-color: transparent;
+  background: transparent;
+}
+
+.yh-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 var(--yh-space-2);
+  border: 1px solid var(--yh-border);
+  border-radius: 999px;
+  color: var(--yh-text-muted);
+  font-size: var(--yh-text-xs);
+  white-space: nowrap;
+}
+
+/* Tier chips: add data-tier="A" | "B" | "C". */
+.yh-chip[data-tier] {
+  border-color: currentColor;
+  font-weight: 600;
+}
+
+.yh-chip[data-tier='A'] {
+  color: var(--yh-tier-a);
+}
+
+.yh-chip[data-tier='B'] {
+  color: var(--yh-tier-b);
+}
+
+.yh-chip[data-tier='C'] {
+  color: var(--yh-tier-c);
+}
+
+.yh-panel {
+  border: 1px solid var(--yh-border);
+  border-radius: var(--yh-radius-l);
+  background: var(--yh-surface);
+}
+
+.yh-tabs {
+  display: flex;
+  gap: var(--yh-space-4);
+  border-bottom: 1px solid var(--yh-border);
+}
+
+.yh-tab {
+  margin-bottom: -1px;
+  padding: var(--yh-space-2) 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--yh-text-muted);
+  font: inherit;
+  font-size: var(--yh-text-s);
+  cursor: pointer;
+}
+
+.yh-tab[aria-selected='true'] {
+  border-bottom-color: var(--yh-accent);
+  color: var(--yh-text);
+}
+
+/* Long-form text: write-ups and notes. */
+.yh-prose {
+  max-width: 68ch;
+  line-height: 1.65;
+}
+
+.yh-prose > * + * {
+  margin-top: var(--yh-space-4);
+}
+
+.yh-prose h2 {
+  margin-top: var(--yh-space-5);
+  font-size: var(--yh-text-l);
+}
+
+.yh-prose h3 {
+  font-size: var(--yh-text-m);
+}
+
+.yh-prose code {
+  padding: 0.1em 0.3em;
+  border-radius: var(--yh-radius-s);
+  background: var(--yh-surface-2);
+  font-family: var(--yh-font-mono);
+  font-size: 0.9em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,37 @@
+/* Story 2.6: the click-to-start notice. It covers the paused frame nearly completely, so the
+   strong setting is not seen before it is chosen. */
+.yh-gate {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: color-mix(in oklab, var(--yh-bg) 88%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.yh-gate__panel {
+  max-width: 34rem;
+  padding: 20px 22px;
+  border: 1px solid var(--yh-border);
+  border-radius: var(--yh-radius-l);
+  background: var(--yh-surface);
+  color: var(--yh-text);
+}
+
+.yh-gate__title {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+.yh-gate__text {
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.yh-gate__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

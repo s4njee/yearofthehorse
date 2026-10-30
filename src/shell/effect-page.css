@@ -1,0 +1,105 @@
+.yh-effect {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: var(--yh-space-5);
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: var(--yh-space-5);
+}
+
+.yh-effect__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--yh-space-3);
+  min-width: 0;
+}
+
+.yh-effect__stage {
+  position: relative;
+  height: min(64vh, 720px);
+  min-height: 320px;
+  overflow: hidden;
+  border: 1px solid var(--yh-border);
+  border-radius: var(--yh-radius-l);
+  /* The page colour, not a panel colour: a see-through effect is judged against this. */
+  background: var(--yh-bg);
+}
+
+.yh-effect__stage:fullscreen {
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+}
+
+.yh-effect__hud {
+  position: absolute;
+  z-index: 2;
+  top: var(--yh-space-3);
+  left: var(--yh-space-3);
+}
+
+.yh-effect__hud:empty {
+  display: none;
+}
+
+.yh-effect__toolbar,
+.yh-effect__group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--yh-space-2);
+}
+
+.yh-effect__spacer {
+  flex: 1;
+}
+
+.yh-effect__tabpanel {
+  min-height: 240px;
+  padding: var(--yh-space-4) 0 var(--yh-space-6);
+}
+
+.yh-effect__side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--yh-space-5);
+  min-width: 0;
+}
+
+.yh-effect__intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--yh-space-3);
+}
+
+.yh-effect__title {
+  font-size: var(--yh-text-xl);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.yh-effect__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--yh-space-2);
+}
+
+@media (max-width: 900px) {
+  .yh-effect {
+    grid-template-columns: minmax(0, 1fr);
+    padding: var(--yh-space-4);
+  }
+
+  /* Title first, then the effect, then its controls. */
+  .yh-effect__side {
+    display: contents;
+  }
+
+  .yh-effect__intro {
+    order: -1;
+  }
+
+  .yh-effect__stage {
+    height: 52vh;
+  }
+}

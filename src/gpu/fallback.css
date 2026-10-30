@@ -1,0 +1,59 @@
+.yh-fallback {
+  position: relative;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  min-height: 12rem;
+  padding: 1.5rem;
+  overflow: hidden;
+  background: var(--yh-fallback-bg, #080b10);
+  color: var(--yh-fallback-fg, #e7eef5);
+  font: inherit;
+  line-height: 1.5;
+}
+
+.yh-fallback__poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.yh-fallback__panel {
+  position: relative;
+  max-width: 34rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgb(231 238 245 / 0.2);
+  border-radius: 0.75rem;
+  /* Opaque enough that the text keeps its contrast over any poster. */
+  background: rgb(8 11 16 / 0.85);
+}
+
+.yh-fallback__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.125em;
+  font-weight: 600;
+}
+
+.yh-fallback__body {
+  margin: 0;
+}
+
+.yh-fallback__details {
+  margin-top: 1rem;
+  font-size: 0.8125em;
+  opacity: 0.8;
+}
+
+.yh-fallback__summary {
+  cursor: pointer;
+}
+
+.yh-fallback__detail {
+  margin: 0.5rem 0 0;
+  font-family: ui-monospace, monospace;
+  overflow-wrap: anywhere;
+}
