@@ -37,7 +37,7 @@ npm run posters -- --force   # fallback posters from held frames, as WebP
 npm run deploy     # build and upload dist/ to Cloudflare Pages (project yearofthehorse)
 ```
 
-`?effect=<id>` opens an effect, `&hud=1` the performance HUD, and `&p.<param>=<value>` sets a parameter, `&p.dose=0.6` (intensity) included.
+`/hanabi.html` is a demo page: the river tour behind a festival's page, following its programme. `?effect=<id>` opens an effect, `&hud=1` the performance HUD, and `&p.<param>=<value>` sets a parameter, `&p.dose=0.6` (intensity) included.
 
 ## Effects
 
@@ -52,6 +52,7 @@ npm run deploy     # build and upload dist/ to Cloudflare Pages (project yearoft
 | `crossette`      | Stars that split in four part way out, still a pure function of time                                                                                                                                                  | A    |
 | `glitter-finale` | Glitter, crackle and strobe stars, with the full-rate strobe gated                                                                                                                                                    | A    |
 | `display`        | A whole show over a river: every shell in one programme, smoke lit from inside by later bursts, a far bank, and reflections                                                                                           | B    |
+| `river-tour`     | The display over the river as a guided tour: an act for each kind of shell, named as it starts, then all together and the finale. Its demo page is `hanabi.html`                                                      | B    |
 
 ## Layout
 
@@ -66,6 +67,7 @@ src/gpu/shells/             the star model (a burning sphere under quadratic dra
                             angle and time), shells as records in a programme, their designs and shapes,
                             and the shell renderer: every star a ribbon along its own past path
 src/gpu/smoke/              a display's smoke as puffs with no state, and the bursts that light it
+src/gpu/river/              the river a show plays over: its smoke, a far bank, and the reflections
 src/gpu/spectra/            emission spectra of star compositions, to sRGB and Display P3 as lights
 src/gpu/hash.ts             twins of the shader hashes, so CPU models make the same random choices
 src/gpu/safety/             dose, the pattern analyser, motion estimate, colour caps and the start gate's rules
@@ -74,6 +76,7 @@ src/gpu/strokes/            the stroke renderer, for neon tubes, light painting 
 src/gpu/symmetry/fold.ts    the 17 wallpaper groups and the rosettes as folds
 src/gpu/text/               a font as a signed distance field (Temple of Time's), for neon and LED text
 src/effects/<id>/           meta.ts, index.ts, shaders, notes.md, poster.webp
+hanabi.html, src/demos/     a demo page with the river tour behind it, on Snow Temple's page layout
 docs/studies/               cost studies and the browser check
 ```
 

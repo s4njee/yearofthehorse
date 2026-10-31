@@ -121,3 +121,43 @@ export const unsteady = (shell: Shell, h: Hash, kind: Special, strobe = 4): Shel
     sparks: kind === 'glitter' ? 0.4 : 0,
   };
 };
+
+/**
+ * A shaped shell (3.6): its stars laid out flat as shape `shape` of the show's shapes, so they leave
+ * the break in that plane. The plane's normal is uniform on the sphere (a tumbling shell), pulled
+ * towards the viewer (+z) by `facing`: 0 is a real shell, 1 always faces, as no real shell can.
+ */
+export const shaped = (
+  shell: Shell,
+  h: Hash,
+  shape: number,
+  facing: number,
+  points = 96,
+): Shell => {
+  const random = onSphere(h(2), h(3));
+  const n = random.map((c, k) => (1 - facing) * c + facing * (k === 2 ? 1 : 0));
+  const len = Math.hypot(...n) || 1;
+  return {
+    ...shell,
+    pattern: 'shape',
+    shape,
+    normal: [n[0]! / len, n[1]! / len, n[2]! / len],
+    stars: points,
+    colour: PEONY_COLOURS[Math.floor(h(4) * PEONY_COLOURS.length)]!,
+    pistil: undefined,
+    trail: 0,
+    sparks: 0,
+  };
+};
+
+/** Any kind of shell, mixed as a hanabi taikai mixes them (3.8): the programme of `display`. */
+export const anyKind = (shell: Shell, h: Hash): Shell => {
+  const kind = h(40);
+  if (kind < 0.3) return shell;
+  if (kind < 0.42) return willow(shell, h(41) < 0.4);
+  if (kind < 0.5) return palm(shell, h);
+  if (kind < 0.58) return ring(shell, h);
+  if (kind < 0.76) return warimono(shell, h, h(42) < 0.5);
+  if (kind < 0.86) return crossette(shell, h);
+  return unsteady(shell, h, h(43) < 0.6 ? 'glitter' : 'crackle');
+};

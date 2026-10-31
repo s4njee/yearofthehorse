@@ -1,0 +1,83 @@
+@import '../page/page.css';
+
+/*
+ * The "Hanabi over the river" page: the shared page (../page/page.css) on a summer night, with the
+ * show behind the page, and Matrix green, a phosphor terminal's, for the accent. The programme's acts are the
+ * shared notes' plates in a list; the one in the air is marked.
+ */
+
+:root {
+  --paper: #000;
+  --plate: #05040a6b;
+  --text: #f4efe4;
+  --muted: #bdb4a2;
+  --faint: #857c6b;
+  --hairline: #ffffff1f;
+  --control: #ffffff10;
+  --hue: #00c837;
+  --toolbar: #05040af2;
+}
+
+.toolbar {
+  background: var(--toolbar);
+}
+
+.toolbar button:hover {
+  border-color: var(--hue);
+}
+
+/* The programme: the notes' plates, as an ordered list that follows the show. */
+.acts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.act {
+  padding: 18px 20px;
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  transition:
+    border-color 0.4s,
+    box-shadow 0.4s;
+}
+
+.act h3 {
+  margin: 10px 0 8px;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+}
+
+.act p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.act[aria-current='true'] {
+  border-color: var(--hue);
+  box-shadow: 0 0 24px #00c83740;
+}
+
+.act[aria-current='true'] .note-number {
+  color: var(--hue);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .act {
+    transition: none;
+  }
+}
+
+/* Without WebGPU: the poster stands in, and a few points of light in CSS. */
+body[data-state='fallback'] {
+  background:
+    radial-gradient(circle at 30% 26%, #ffc94d 0 0.3vh, transparent calc(0.3vh + 1px)) fixed,
+    radial-gradient(circle at 68% 18%, #ff7a5a 0 0.25vh, transparent calc(0.25vh + 1px)) fixed,
+    radial-gradient(circle at 52% 34%, #ffffffb0 0 0.35vh, transparent calc(0.35vh + 1px)) fixed,
+    #000;
+}

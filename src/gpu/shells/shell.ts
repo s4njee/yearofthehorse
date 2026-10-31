@@ -223,11 +223,16 @@ export function activeShells(list: readonly Shell[], time: number, period: numbe
 /**
  * A calm moment to hold: no shell within half a second of its break, and as many shells open
  * (between a half and three quarters of their burn) as the programme usually has, rounded down,
- * so the held frame is never brighter than the display plays.
+ * so the held frame is never brighter than the display plays. `within` limits the search to part
+ * of the programme (a scripted show's first act), seconds.
  */
-export function heldTime(list: readonly Shell[], period: number): number {
+export function heldTime(
+  list: readonly Shell[],
+  period: number,
+  within: readonly [number, number] = [0, period],
+): number {
   const moments: { t: number; open: number; breaking: boolean }[] = [];
-  for (let t = 0; t < period; t += 0.05) {
+  for (let t = within[0]; t < within[1]; t += 0.05) {
     let open = 0;
     let breaking = false;
     for (const s of activeShells(list, t, period)) {

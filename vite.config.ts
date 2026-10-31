@@ -14,7 +14,7 @@ export default defineConfig({
     assetsInlineLimit: 0,
     rolldownOptions: {
       // The gallery; standalone pages that place an effect on an ordinary page join it here.
-      input: ['index.html'],
+      input: ['index.html', 'hanabi.html'],
       output: {
         // Every effect's meta.ts is needed at once, by the gallery. Left alone, each becomes its
         // own tiny chunk (the effect's lazy chunk imports it too), which is one request per effect

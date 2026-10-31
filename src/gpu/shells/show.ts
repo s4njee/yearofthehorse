@@ -47,6 +47,17 @@ export interface ShowOptions<V extends ShowValues = ShowValues> {
   spread?: number;
   /** Makes each plain shell the effect's own. */
   design?: (shell: Shell, h: (k: number) => number, index: number, params: V) => Shell;
+  /**
+   * The whole programme, written by the effect instead of made by the seed (a tour of the kinds,
+   * act by act): given the shells a minute the dose asks for, the period and the firing line's
+   * width, metres. `design` is not applied to it.
+   */
+  script?: (rate: number, period: number, width: number, params: V) => Shell[];
+  /**
+   * The part of the programme the held moment is chosen from, seconds (a scripted show's first
+   * act, so play starts there). Default: all of it.
+   */
+  hold?: readonly [number, number];
   /** Shells added to the programme the seed made (a finale), given the period. */
   extra?: (list: readonly Shell[], period: number, params: V) => Shell[];
   /** Params the design reads: the programme is remade when they change. */
@@ -142,16 +153,19 @@ export async function createShow<V extends ShowValues>(
       const extra = (options.keys ?? []).map((k) => String(params[k])).join(':');
       const key = `${rate}:${params.seed}:${Math.round(across)}:${extra}`;
       if (key !== listKey) {
-        list = programme(params.seed, {
-          rate,
-          period,
-          width: across * (options.spread ?? 0.8),
-          gap: options.gap ?? 0.9,
-          mix: options.mix,
-          design: options.design && ((s, h, i) => options.design!(s, h, i, params)),
-        });
+        const line = across * (options.spread ?? 0.8);
+        list = options.script
+          ? options.script(rate, period, line, params)
+          : programme(params.seed, {
+              rate,
+              period,
+              width: line,
+              gap: options.gap ?? 0.9,
+              mix: options.mix,
+              design: options.design && ((s, h, i) => options.design!(s, h, i, params)),
+            });
         if (options.extra) list = [...list, ...options.extra(list, period, params)];
-        held = heldTime(list, period);
+        held = heldTime(list, period, options.hold);
         // Play starts from the held moment, so the page opens with shells already open, and a
         // held frame is the frame playing would show first.
         if (!listKey) clock = held;

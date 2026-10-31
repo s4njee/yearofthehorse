@@ -174,6 +174,36 @@
       }
     },
     {
+      "id": "river-tour",
+      "title": "A tour over the river",
+      "summary": "The display over the river as a guided show: every kind of shell the family draws gets an act of its own, named as it starts (peonies, chrysanthemums, warimono, yae-shin, rings, palms, willows, kamuro, crossettes, glitter, crackle, strobes, shaped shells), then all of them together, then the finale.",
+      "epic": "3",
+      "tier": "B",
+      "tags": [
+        "fireworks",
+        "hero",
+        "japan",
+        "demo"
+      ],
+      "status": "demo",
+      "poster": "src/effects/river-tour/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "none",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A 10-bit AV1 loop of the programme, or the poster.",
+        "useCases": [
+          "A demo of the family",
+          "A festival page that explains its fireworks"
+        ]
+      }
+    },
+    {
       "id": "shaped-shells",
       "title": "Shaped shells",
       "summary": "Hearts, stars, smiles and a horse’s head as flat patterns of stars, or the page’s own SVG path, each seen at the angle its shell happened to break at: most come out skewed, as real ones do.",

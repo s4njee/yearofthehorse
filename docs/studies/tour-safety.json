@@ -1,0 +1,29 @@
+{
+  "measuredAt": "2026-10-31T22:44:43.876Z",
+  "rows": [
+    {
+      "dose": "default",
+      "flash": "low",
+      "cell": 1,
+      "red": 1,
+      "areaPx": 0,
+      "zoom": 0,
+      "drift": 0.001,
+      "peakZoom": 0.481,
+      "readingsOver": 9,
+      "largestAreaOver": 0.18
+    },
+    {
+      "dose": 0.7,
+      "flash": "low",
+      "cell": 1,
+      "red": 1,
+      "areaPx": 0,
+      "zoom": 0,
+      "drift": 0.003,
+      "peakZoom": 0.405,
+      "readingsOver": 6,
+      "largestAreaOver": 0.194
+    }
+  ]
+}

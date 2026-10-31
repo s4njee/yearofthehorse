@@ -1,0 +1,190 @@
+{
+  "epic": null,
+  "measuredAt": "2026-10-31T22:51:50.140Z",
+  "device": "Apple M1 Max",
+  "deviceClass": "apple-silicon",
+  "adapter": {
+    "vendor": "apple",
+    "architecture": "metal-3",
+    "device": "apple-m1-max",
+    "description": "Metal driver on macOS Version 26.6.2 (Build 25G83)"
+  },
+  "runtime": "Dawn (node webgpu bindings)",
+  "method": {
+    "metric": "GPU timestamps: frame span (first pass start to last pass end) and marginal cost per extra frame",
+    "warmupFrames": 12,
+    "rounds": 11,
+    "repeats": 4
+  },
+  "note": "Only this adapter was measured. spanMs includes the timing floor (see the \"(floor)\" rows); slopeMs is the cost of one more frame of the same work and is the number to compare by. A slope at or below zero means the work is below what this method can resolve.",
+  "rows": [
+    {
+      "effect": "(floor)",
+      "config": "one constant-colour pass",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.065536,
+      "slopeMs": 0.065536,
+      "slopeMinMs": -0.021845333333333345,
+      "slopeMaxMs": 0.2839893333333333,
+      "passes": 1,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "(tail)",
+      "config": "constant scene + bloom + output",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.720896,
+      "slopeMs": 0.458752,
+      "slopeMinMs": 0.24029866666666663,
+      "slopeMaxMs": 0.8956586666666667,
+      "passes": 11,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "river-tour",
+      "config": "default",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 1.31072,
+      "slopeMs": 1.2233386666666668,
+      "slopeMinMs": 0.7645866666666666,
+      "slopeMaxMs": 1.703936,
+      "passes": 14,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "river-tour",
+      "config": "preset tour",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 1.376256,
+      "slopeMs": 1.4636373333333335,
+      "slopeMinMs": 0.8301226666666667,
+      "slopeMaxMs": 2.5340586666666667,
+      "passes": 14,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "river-tour",
+      "config": "preset plain",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 1.376256,
+      "slopeMs": 1.179648,
+      "slopeMinMs": 0.917504,
+      "slopeMaxMs": 1.9879253333333333,
+      "passes": 13,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "river-tour",
+      "config": "preset clear",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 1.048576,
+      "slopeMs": 0.786432,
+      "slopeMinMs": 0.4369066666666667,
+      "slopeMaxMs": 1.813162666666667,
+      "passes": 14,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "river-tour",
+      "config": "preset photograph",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 1.376256,
+      "slopeMs": 1.179648,
+      "slopeMinMs": 0.9393493333333334,
+      "slopeMaxMs": 1.4636373333333335,
+      "passes": 14,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "(floor)",
+      "config": "one constant-colour pass",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.065536,
+      "slopeMs": 0.04369066666666666,
+      "slopeMinMs": 0,
+      "slopeMaxMs": 0.08738133333333335,
+      "passes": 1,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "(tail)",
+      "config": "constant scene + bloom + output",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.458752,
+      "slopeMs": 0.32767999999999997,
+      "slopeMinMs": 0.30583466666666664,
+      "slopeMaxMs": 0.4805973333333333,
+      "passes": 9,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "river-tour",
+      "config": "default",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.786432,
+      "slopeMs": 0.6990506666666666,
+      "slopeMinMs": 0.4369066666666666,
+      "slopeMaxMs": 1.4417920000000002,
+      "passes": 12,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "river-tour",
+      "config": "preset tour",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.851968,
+      "slopeMs": 0.6772053333333333,
+      "slopeMinMs": 0.1529173333333332,
+      "slopeMaxMs": 1.9223893333333333,
+      "passes": 12,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "river-tour",
+      "config": "preset plain",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.98304,
+      "slopeMs": 0.98304,
+      "slopeMinMs": 0.5461333333333332,
+      "slopeMaxMs": 1.6384,
+      "passes": 11,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "river-tour",
+      "config": "preset clear",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.589824,
+      "slopeMs": 0.6335146666666667,
+      "slopeMinMs": 0.3713706666666667,
+      "slopeMaxMs": 0.8082773333333333,
+      "passes": 12,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "river-tour",
+      "config": "preset photograph",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.851968,
+      "slopeMs": 0.7427413333333334,
+      "slopeMinMs": 0.5024426666666667,
+      "slopeMaxMs": 1.3544106666666664,
+      "passes": 12,
+      "metric": "gpu-timestamp"
+    }
+  ]
+}

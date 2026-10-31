@@ -8,7 +8,7 @@
         "ms": 1.07
       }
     ],
-    "bundleKb": 39
+    "bundleKb": 39.3
   },
   "display": {
     "gpuMs": [
@@ -19,7 +19,7 @@
         "ms": 1.49
       }
     ],
-    "bundleKb": 48.4
+    "bundleKb": 48.7
   },
   "glitter-finale": {
     "gpuMs": [
@@ -30,7 +30,7 @@
         "ms": 0.66
       }
     ],
-    "bundleKb": 39.1
+    "bundleKb": 39.4
   },
   "hello": {
     "gpuMs": [
@@ -41,7 +41,7 @@
         "ms": 0.55
       }
     ],
-    "bundleKb": 28.4
+    "bundleKb": 28.5
   },
   "palm-and-ring": {
     "gpuMs": [
@@ -52,7 +52,7 @@
         "ms": 0.83
       }
     ],
-    "bundleKb": 39
+    "bundleKb": 39.3
   },
   "peony-display": {
     "gpuMs": [
@@ -63,7 +63,18 @@
         "ms": 0.92
       }
     ],
-    "bundleKb": 38.3
+    "bundleKb": 38.4
+  },
+  "river-tour": {
+    "gpuMs": [
+      {
+        "device": "Apple M1 Max",
+        "deviceClass": "apple-silicon",
+        "method": "marginal",
+        "ms": 1.22
+      }
+    ],
+    "bundleKb": 68.5
   },
   "shaped-shells": {
     "gpuMs": [
@@ -74,7 +85,7 @@
         "ms": 0.92
       }
     ],
-    "bundleKb": 40
+    "bundleKb": 41
   },
   "warimono": {
     "gpuMs": [
@@ -85,7 +96,7 @@
         "ms": 0.92
       }
     ],
-    "bundleKb": 39
+    "bundleKb": 39.3
   },
   "willow": {
     "gpuMs": [
@@ -96,6 +107,6 @@
         "ms": 0.9
       }
     ],
-    "bundleKb": 39.1
+    "bundleKb": 39.3
   }
 }

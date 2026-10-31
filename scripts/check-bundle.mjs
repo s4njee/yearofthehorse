@@ -72,11 +72,15 @@ const WGSL_MARKERS = [
 ];
 
 const entries = Object.keys(manifest).filter((key) => manifest[key].isEntry);
+// The gallery's first load is what index.html pulls in. A standalone page (hanabi.html) is a first
+// load of its own: none may carry shader text, but its script is not the gallery's.
 const eager = new Set();
-for (const entry of entries) staticClosure(entry, eager);
+staticClosure('index.html', eager);
+const firstLoads = new Set();
+for (const entry of entries) staticClosure(entry, firstLoads);
 
 const offenders = [];
-for (const key of eager) {
+for (const key of firstLoads) {
   const text = readFileSync(join(dist, manifest[key].file), 'utf8');
   const marker = WGSL_MARKERS.find((pattern) => pattern.test(text));
   if (marker) offenders.push(`${manifest[key].file} (matches ${marker})`);

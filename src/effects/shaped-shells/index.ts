@@ -1,6 +1,6 @@
+import { shaped } from '../../gpu/shells/designs.ts';
 import { shapePoints, SHAPES, type ShapeName } from '../../gpu/shells/shapes.ts';
 import { createShow, SHOW_PARAMS } from '../../gpu/shells/show.ts';
-import { PEONY_COLOURS } from '../../gpu/shells/shell.ts';
 import { defineEffect } from '../types.ts';
 import { meta } from './meta.ts';
 
@@ -48,25 +48,7 @@ export const effect = defineEffect({
             : values.shape === 'path'
               ? NAMES.length
               : NAMES.indexOf(values.shape as ShapeName);
-        // The shell's plane: its normal uniform on the sphere (a tumbling shell), pulled towards
-        // the viewer (+z) by `facing`.
-        const z = 2 * h(2) - 1;
-        const r = Math.sqrt(1 - z * z);
-        const random = [r * Math.cos(2 * Math.PI * h(3)), r * Math.sin(2 * Math.PI * h(3)), z];
-        const f = values.facing;
-        const n = random.map((c, k) => (1 - f) * c + f * (k === 2 ? 1 : 0));
-        const len = Math.hypot(...n) || 1;
-        return {
-          ...shell,
-          pattern: 'shape',
-          shape: index,
-          normal: [n[0]! / len, n[1]! / len, n[2]! / len],
-          stars: POINTS,
-          colour: PEONY_COLOURS[Math.floor(h(4) * PEONY_COLOURS.length)]!,
-          pistil: undefined,
-          trail: 0,
-          sparks: 0,
-        };
+        return shaped(shell, h, index, values.facing, POINTS);
       },
     });
   },

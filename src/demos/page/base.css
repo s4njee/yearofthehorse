@@ -1,0 +1,427 @@
+/*
+ * The layout of a demo page with an effect fixed over or behind the whole of it, taken from Moon
+ * Temple's "Slow spectrum" page by way of Snow Temple's. Self-contained on purpose (it is "someone else's website", not the
+ * research shell). Each page's own stylesheet sets the colours and `--hue`, its accent.
+ */
+
+:root {
+  color-scheme: dark;
+  --paper: #05050a;
+  /* Dark enough to read on whatever colour passes behind, light enough to see the field through. */
+  --plate: #06060cc4;
+  --text: #eeedf7;
+  --muted: #b0aec8;
+  --faint: #827f9c;
+  --hairline: #ffffff1f;
+  --control: #ffffff10;
+  --hue: #ff5a5a;
+
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-synthesis: none;
+  color: var(--text);
+  background: var(--paper);
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--hue);
+  color: var(--paper);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--hue);
+  outline-offset: 4px;
+}
+
+/* The field: fixed behind everything, the size of the viewport. It never takes the pointer; main.ts
+   passes movement on to it, so text stays selectable and links clickable. */
+#stage {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body[data-state='fallback'] #stage {
+  display: none;
+}
+
+/* Without WebGPU: a still field of soft discs in CSS. */
+body[data-state='fallback'] {
+  background:
+    radial-gradient(circle at 50% 17%, #e8ecff 0 2%, #ff5a5a40 6%, transparent 20%),
+    radial-gradient(circle at 14% 62%, #ff5a5a55 0 3vh, transparent calc(3vh + 1px)),
+    radial-gradient(circle at 31% 36%, #ff8a4a44 0 2.6vh, transparent calc(2.6vh + 1px)),
+    radial-gradient(circle at 66% 72%, #ff5a8a44 0 3.4vh, transparent calc(3.4vh + 1px)),
+    radial-gradient(circle at 84% 30%, #ff6a5a3a 0 2.8vh, transparent calc(2.8vh + 1px)),
+    var(--paper);
+  background-attachment: fixed;
+}
+
+/* A plate: page content over the field. Translucent and blurred behind, so the lights still show
+   through as colour while the text in front stays sharp. */
+.plate {
+  background: var(--plate);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 32px 5vw;
+}
+
+.wordmark {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 9px 12px;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+}
+
+.wordmark span {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.4px;
+  color: var(--faint);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+nav a {
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+nav a:hover {
+  background: var(--control);
+  text-decoration: none;
+}
+
+/* --- The hero ------------------------------------------------------------------------------------ */
+
+.experiment {
+  position: relative;
+  min-height: calc(100svh - 110px);
+  padding: 8vh 5vw 120px;
+}
+
+.intro {
+  max-width: 680px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin: 0 0 24px;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.4px;
+  color: var(--hue);
+}
+
+h1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.12em 0.22em;
+  margin: 0 0 28px;
+  font-size: clamp(60px, 10vw, 136px);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+h1 span {
+  padding: 0.02em 0.1em 0.08em;
+  border-radius: 14px;
+}
+
+.description {
+  display: inline-block;
+  margin: 0 0 36px;
+  padding: 14px 18px;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 22px;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.button:hover {
+  border-color: var(--hue);
+  text-decoration: none;
+}
+
+.experiment-caption {
+  position: absolute;
+  right: 5vw;
+  bottom: 130px;
+  left: 5vw;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--hairline);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--faint);
+}
+
+/* --- How it works -------------------------------------------------------------------------------- */
+
+.explanation {
+  padding: 12vh 5vw 180px;
+}
+
+.section-heading h2 {
+  display: inline-block;
+  margin: 0 0 56px;
+  padding: 8px 14px;
+  border-radius: 14px;
+  font-size: clamp(38px, 5.5vw, 72px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.notes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-bottom: 96px;
+}
+
+.note {
+  padding: 26px 24px;
+  border: 1px solid var(--hairline);
+  border-radius: 18px;
+}
+
+.note-number {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--hue);
+}
+
+.note h3 {
+  margin: 16px 0 10px;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+
+.note p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.explanation footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--faint);
+}
+
+.explanation footer > * {
+  padding: 8px 12px;
+}
+
+/* --- The toolbar --------------------------------------------------------------------------------- */
+
+.toolbar {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px 16px;
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  background: #07070df2;
+  font-size: 13px;
+  backdrop-filter: blur(12px);
+}
+
+.live-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* The swatch: the colour the field is passing through. */
+.live-status i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--hue);
+  box-shadow: 0 0 12px var(--hue);
+}
+
+body[data-state='paused'] .live-status i,
+body[data-state='fallback'] .live-status i {
+  box-shadow: none;
+}
+
+.live-status div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+#hue-name {
+  font-size: 11px;
+  color: var(--faint);
+}
+
+.toolbar-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+}
+
+.toolbar button,
+.toolbar select {
+  padding: 7px 12px;
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  background: var(--control);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.toolbar button:hover:not(:disabled),
+.toolbar select:hover {
+  border-color: #ffffff40;
+}
+
+.toolbar button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.select-control,
+.range-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+}
+
+.range-control input {
+  width: 110px;
+  accent-color: var(--hue);
+}
+
+output {
+  min-width: 3.2em;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Small screens ------------------------------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+  .experiment-caption {
+    position: static;
+    margin-top: 48px;
+  }
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 16px;
+  }
+
+  .experiment,
+  .explanation {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .notes {
+    grid-template-columns: 1fr;
+  }
+
+  .experiment-caption {
+    flex-direction: column;
+  }
+
+  .toolbar {
+    right: 8px;
+    bottom: 8px;
+    left: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+}

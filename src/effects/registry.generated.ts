@@ -6,18 +6,19 @@ import { meta as meta2 } from './glitter-finale/meta.ts';
 import { meta as meta3 } from './hello/meta.ts';
 import { meta as meta4 } from './palm-and-ring/meta.ts';
 import { meta as meta5 } from './peony-display/meta.ts';
-import { meta as meta6 } from './shaped-shells/meta.ts';
-import { meta as meta7 } from './warimono/meta.ts';
-import { meta as meta8 } from './willow/meta.ts';
+import { meta as meta6 } from './river-tour/meta.ts';
+import { meta as meta7 } from './shaped-shells/meta.ts';
+import { meta as meta8 } from './warimono/meta.ts';
+import { meta as meta9 } from './willow/meta.ts';
 import poster0 from './crossette/poster.webp?url';
 import poster1 from './display/poster.webp?url';
 import poster2 from './glitter-finale/poster.webp?url';
 import poster3 from './hello/poster.webp?url';
 import poster4 from './palm-and-ring/poster.webp?url';
 import poster5 from './peony-display/poster.webp?url';
-import poster6 from './shaped-shells/poster.webp?url';
-import poster7 from './warimono/poster.webp?url';
-import poster8 from './willow/poster.webp?url';
+import poster7 from './shaped-shells/poster.webp?url';
+import poster8 from './warimono/poster.webp?url';
+import poster9 from './willow/poster.webp?url';
 
 export const metas: readonly EffectMeta[] = [
   meta0,
@@ -29,6 +30,7 @@ export const metas: readonly EffectMeta[] = [
   meta6,
   meta7,
   meta8,
+  meta9,
 ];
 
 export const loaders: Readonly<Record<string, () => Promise<EffectModule>>> = {
@@ -38,6 +40,7 @@ export const loaders: Readonly<Record<string, () => Promise<EffectModule>>> = {
   hello: () => import('./hello/index.ts').then((module) => module.effect),
   'palm-and-ring': () => import('./palm-and-ring/index.ts').then((module) => module.effect),
   'peony-display': () => import('./peony-display/index.ts').then((module) => module.effect),
+  'river-tour': () => import('./river-tour/index.ts').then((module) => module.effect),
   'shaped-shells': () => import('./shaped-shells/index.ts').then((module) => module.effect),
   warimono: () => import('./warimono/index.ts').then((module) => module.effect),
   willow: () => import('./willow/index.ts').then((module) => module.effect),
@@ -50,7 +53,7 @@ export const posters: Readonly<Record<string, string>> = {
   hello: poster3,
   'palm-and-ring': poster4,
   'peony-display': poster5,
-  'shaped-shells': poster6,
-  warimono: poster7,
-  willow: poster8,
+  'shaped-shells': poster7,
+  warimono: poster8,
+  willow: poster9,
 };

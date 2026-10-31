@@ -3,7 +3,7 @@
 #include "noise.wgsl"
 #include "fbm.wgsl"
 
-// display (story 3.8): the whole show over a river. Three passes after the stars:
+// The river a show plays over (story 3.8: `display`, and `river-tour`). Two passes after the stars:
 //
 // 1. smoke_fs, at a fraction of the view's resolution: the display's smoke (story 2.6) as puffs
 //    with no state (src/gpu/smoke/puffs.ts), each given texture by fractal noise in its own frame,

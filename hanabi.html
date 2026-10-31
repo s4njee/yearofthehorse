@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <title>Hanabi over the river · Year of the Horse</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%23111017'/%3E%3Cg stroke='%23ffc94d' stroke-width='1.3' stroke-linecap='round'%3E%3Cpath d='M8 1.8v2.4M8 11.8v2.4M1.8 8h2.4M11.8 8h2.4M3.6 3.6l1.7 1.7M10.7 10.7l1.7 1.7M3.6 12.4l1.7-1.7M10.7 5.3l1.7-1.7'/%3E%3C/g%3E%3Ccircle cx='8' cy='8' r='1.3' fill='%23fff3d1'/%3E%3C/svg%3E"
+    />
+  </head>
+  <!-- The tour of the shells (river-tour) fixed behind a whole page, as a festival's site would use
+       it: the page's text sits on plates over the sky, and the programme below follows the show,
+       marking the act in the air. The toolbar sits above everything. -->
+  <body data-state="loading">
+    <div id="stage" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="wordmark plate" href="./">YEAR OF THE HORSE <span>FIELD STUDIES</span></a>
+      <nav class="plate" aria-label="Demo navigation">
+        <a href="#experiment">Experiment</a>
+        <a href="./?effect=river-tour">Gallery ↗</a>
+        <a href="#programme">Programme ↓</a>
+        <a href="#how-it-works">How it works ↓</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="experiment" class="experiment" aria-labelledby="title">
+        <div class="intro">
+          <p class="eyebrow plate">EXPERIMENT 01 / HANABI OVER THE RIVER</p>
+          <h1 id="title">
+            <span class="plate">Every</span><span class="plate">kind</span
+            ><span class="plate">of shell.</span>
+          </h1>
+          <p class="description plate">
+            A summer night's display over a river, after the hanabi taikai on the Sumida. Each kind
+            of shell gets an act of its own: peonies, chrysanthemums, the hand-packed warimono,
+            rings, palms, willows, crossettes that split, glitter, crackle and strobes, shells that
+            draw shapes, then all of them together and a finale. The smoke drifts on the wind, lit
+            by the bursts that follow, and the river mirrors it all.
+          </p>
+          <a class="button plate" href="#programme">Tonight's programme ↓</a>
+        </div>
+
+        <div class="experiment-caption">
+          <span>THE SKY OVER THE SUMIDA / FOURTEEN ACTS AND A FINALE</span
+          ><span id="now-caption">NOW — PEONY</span>
+        </div>
+      </section>
+
+      <section id="programme" class="explanation programme" aria-labelledby="programme-title">
+        <div class="section-heading">
+          <p class="eyebrow plate">TONIGHT'S PROGRAMME / TWO MINUTES, THEN AGAIN</p>
+          <h2 id="programme-title" class="plate">In the order<br />they fly.</h2>
+        </div>
+        <ol class="acts">
+          <li class="act plate" data-act="Peony">
+            <span class="note-number">0:02 / BOTAN</span>
+            <h3>Peony</h3>
+            <p>A sphere of coloured stars with no tails, often a second colour at its heart.</p>
+          </li>
+          <li class="act plate" data-act="Chrysanthemum">
+            <span class="note-number">0:09 / KIKU</span>
+            <h3>Chrysanthemum</h3>
+            <p>Charcoal-gold stars that leave a trail of sparks drooping behind them.</p>
+          </li>
+          <li class="act plate" data-act="Warimono">
+            <span class="note-number">0:16 / WARIMONO</span>
+            <h3>Warimono</h3>
+            <p>
+              Packed by hand in two halves, so it breaks as a near-perfect sphere. Every star
+              changes colour as it burns.
+            </p>
+          </li>
+          <li class="act plate" data-act="Yae-shin">
+            <span class="note-number">0:23 / YAE-SHIN</span>
+            <h3>Yae-shin</h3>
+            <p>A warimono with petals: two or three spheres of colour, one inside another.</p>
+          </li>
+          <li class="act plate" data-act="Ring">
+            <span class="note-number">0:30 / RING</span>
+            <h3>Ring</h3>
+            <p>Stars round one circle, seen at whatever angle the shell broke at.</p>
+          </li>
+          <li class="act plate" data-act="Palm">
+            <span class="note-number">0:37 / YASHI</span>
+            <h3>Palm</h3>
+            <p>A thick rising trunk, then a few heavy comets that arc over and fall.</p>
+          </li>
+          <li class="act plate" data-act="Willow">
+            <span class="note-number">0:44 / YANAGI</span>
+            <h3>Willow</h3>
+            <p>Slow gold stars with long tails that hang in the air and droop like branches.</p>
+          </li>
+          <li class="act plate" data-act="Kamuro">
+            <span class="note-number">0:51 / KAMURO</span>
+            <h3>Kamuro</h3>
+            <p>
+              A denser willow with shorter tails: a gold crown, named for a child's bobbed hair.
+            </p>
+          </li>
+          <li class="act plate" data-act="Crossette">
+            <span class="note-number">0:58 / CROSSETTE</span>
+            <h3>Crossette</h3>
+            <p>Few, large stars, each splitting in four part way out, so the burst branches.</p>
+          </li>
+          <li class="act plate" data-act="Glitter">
+            <span class="note-number">1:05 / GLITTER</span>
+            <h3>Glitter</h3>
+            <p>Stars that drop sparks which flash a moment after they fall behind.</p>
+          </li>
+          <li class="act plate" data-act="Crackle">
+            <span class="note-number">1:12 / CRACKLE</span>
+            <h3>Crackle</h3>
+            <p>Each star bursts again into a handful of tiny bright pops.</p>
+          </li>
+          <li class="act plate" data-act="Strobe">
+            <span class="note-number">1:19 / STROBE</span>
+            <h3>Strobe</h3>
+            <p>White stars that blink on and off a few times a second, each in its own rhythm.</p>
+          </li>
+          <li class="act plate" data-act="Shaped shells">
+            <span class="note-number">1:26 / KATAMONO</span>
+            <h3>Shaped shells</h3>
+            <p>A heart, a star, a smile and the year's horse, drawn flat in stars.</p>
+          </li>
+          <li class="act plate" data-act="All together">
+            <span class="note-number">1:33 / ALL TOGETHER</span>
+            <h3>All together</h3>
+            <p>Every kind mixed, as a real display mixes them.</p>
+          </li>
+          <li class="act plate" data-act="Finale">
+            <span class="note-number">1:47 / FINALE</span>
+            <h3>Finale</h3>
+            <p>Thirty breaks in twelve seconds, as close together as the flash rule allows.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section id="how-it-works" class="explanation" aria-labelledby="explanation-title">
+        <div class="section-heading">
+          <p class="eyebrow plate">HOW THE SHOW WORKS</p>
+          <h2 id="explanation-title" class="plate">Every star is<br />a moment in time.</h2>
+        </div>
+        <div class="notes">
+          <article class="note plate">
+            <span class="note-number">01 / FLIGHT</span>
+            <h3>No simulation.</h3>
+            <p>
+              Each star's path is worked out ahead of time from how a real star flies: fast off the
+              break, slowed by the air, pulled down by gravity. Any frame can be drawn directly from
+              the time, so the show can pause, hold or resize without losing its place.
+            </p>
+          </article>
+          <article class="note plate">
+            <span class="note-number">02 / TRAILS</span>
+            <h3>As the eye sees it.</h3>
+            <p>
+              Each streak is drawn back along the star's own path, as long as the eye holds a bright
+              light. Switch the trails to a camera's and they stretch to a long exposure, as in a
+              photograph of fireworks.
+            </p>
+          </article>
+          <article class="note plate">
+            <span class="note-number">03 / SMOKE AND WATER</span>
+            <h3>Lit from inside.</h3>
+            <p>
+              Every break leaves a puff of smoke that drifts and thins on the wind and glows in the
+              colour of the bursts behind it. The river below mirrors the sky, rippled and stretched
+              into streaks.
+            </p>
+          </article>
+        </div>
+        <footer>
+          <a class="plate" href="./?effect=river-tour">Open the effect with every control ↗</a>
+          <span class="plate">Year of the Horse / WebGPU / 2026</span>
+        </footer>
+      </section>
+    </main>
+
+    <aside class="toolbar" aria-label="Show controls">
+      <div class="live-status">
+        <i aria-hidden="true"></i>
+        <div>
+          <span id="status" role="status">Waiting for the show…</span>
+          <span id="act-name">Peony</span>
+        </div>
+      </div>
+      <div class="toolbar-controls">
+        <label class="range-control"
+          >Intensity
+          <input id="dose" type="range" min="0.05" max="0.7" step="0.01" value="0.35" />
+        </label>
+        <label class="range-control"
+          >Smoke
+          <input id="smoke" type="range" min="0" max="2" step="0.05" value="1" />
+        </label>
+        <label class="range-control"
+          >Wind
+          <input id="wind" type="range" min="-6" max="6" step="0.5" value="2" />
+        </label>
+        <label class="select-control"
+          >Trails
+          <select id="trails">
+            <option value="eye">The eye's</option>
+            <option value="camera">A camera's</option>
+          </select>
+        </label>
+        <label class="check-control"
+          ><input id="captions" type="checkbox" /> Names in the sky</label
+        >
+        <button id="pause" type="button" disabled>Pause</button>
+      </div>
+    </aside>
+
+    <script type="module" src="/src/demos/hanabi/main.ts"></script>
+  </body>
+</html>
