@@ -41,9 +41,17 @@ npm run deploy     # build and upload dist/ to Cloudflare Pages (project yearoft
 
 ## Effects
 
-| Id      | What                                                                                                                                                                                          | Tier |
-| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
-| `hello` | The smallest effect: shells rising and breaking into peonies and gold chrysanthemums, every star on a closed-form path under drag and gravity, coloured by its metal salt, one instanced draw | A    |
+| Id               | What                                                                                                                                                                                                                  | Tier |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| `hello`          | The smallest effect: shells rising and breaking into peonies and gold chrysanthemums, every star on a closed-form path under drag and gravity, coloured by its metal salt, one instanced draw                         | A    |
+| `peony-display`  | A drop-in display behind a hero: peonies, pistils and gold chrysanthemums from a looping programme, every star a burning sphere slowed by the air, coloured from its emission spectrum, in P3 where the screen has it | A    |
+| `willow`         | Gold willows and kamuro: heavy charcoal stars whose shed sparks hang and fall. Starts behind the gate: its growth reads over the zoom cap (story 2.8)                                                                 | A    |
+| `palm-and-ring`  | Palms (a rising trunk and a few drooping comets) and rings at whatever tilt the shell broke at                                                                                                                        | A    |
+| `warimono`       | The Japanese round shell: a near-perfect sphere, the double-petalled yae-shin, stars that change colour                                                                                                               | A    |
+| `shaped-shells`  | Hearts, stars, smiles, a horse's head or the page's SVG path, as flat patterns of stars that mostly break skewed                                                                                                      | A    |
+| `crossette`      | Stars that split in four part way out, still a pure function of time                                                                                                                                                  | A    |
+| `glitter-finale` | Glitter, crackle and strobe stars, with the full-rate strobe gated                                                                                                                                                    | A    |
+| `display`        | A whole show over a river: every shell in one programme, smoke lit from inside by later bursts, a far bank, and reflections                                                                                           | B    |
 
 ## Layout
 
@@ -54,8 +62,10 @@ src/gpu/points.ts, glare/,  Moon Temple's energy-conserving points, aperture and
   optics/
 src/gpu/sim/, volume/       Fire Temple's 2D and 3D stable fluids, obstacles and volume ray-march kernel
 src/gpu/post/               the HDR tail: bloom, tonemap, colour stage, and Moon Temple's night vision
-src/gpu/shells/             the star model (a burning sphere under quadratic drag, tabulated by angle and
-                            time) and shells as records in a programme
+src/gpu/shells/             the star model (a burning sphere under quadratic drag, tabulated by speed,
+                            angle and time), shells as records in a programme, their designs and shapes,
+                            and the shell renderer: every star a ribbon along its own past path
+src/gpu/smoke/              a display's smoke as puffs with no state, and the bursts that light it
 src/gpu/spectra/            emission spectra of star compositions, to sRGB and Display P3 as lights
 src/gpu/hash.ts             twins of the shader hashes, so CPU models make the same random choices
 src/gpu/safety/             dose, the pattern analyser, motion estimate, colour caps and the start gate's rules

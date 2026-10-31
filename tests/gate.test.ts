@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { listEffects } from '../src/effects/registry.ts';
 import type { EffectMeta } from '../src/effects/types.ts';
-import { gateKey, gateNotice, gateReasons } from '../src/gpu/safety/gate.ts';
+import { gateKey, gateNotice, gateReasons, startsGated } from '../src/gpu/safety/gate.ts';
 
 // Story 2.6: which settings start behind the click-to-start notice.
 
@@ -33,6 +33,14 @@ describe('gateReasons', () => {
     expect(gateReasons(meta, undefined, { dose: 0.9 })).toEqual(['dose']);
     expect(gateReasons(meta, 'calm', { dose: 0.7 })).toEqual([]);
     expect(gateReasons(meta, undefined, {})).toEqual([]);
+  });
+
+  it('gates every setting of an effect over the motion caps at its defaults', () => {
+    const always: EffectMeta = { ...meta, scorecard: { ...meta.scorecard!, motionDefaults: true } };
+    expect(gateReasons(always, undefined, {})).toEqual(['motion']);
+    expect(gateReasons(always, 'stripes', { dose: 0.2 })).toEqual(['pattern', 'motion']);
+    expect(startsGated(always)).toBe(true);
+    expect(startsGated(meta)).toBe(false);
   });
 
   it('says what to expect, in plain words', () => {

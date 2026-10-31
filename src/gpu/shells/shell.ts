@@ -1,5 +1,14 @@
 import { pcg1d, toUnorm } from '../hash.ts';
-import { burnTime, STAR_CLASSES, starTable, type StarClass } from './star.ts';
+import {
+  burnTime,
+  KIND_ORDER,
+  STAR_CLASSES,
+  STAR_KINDS,
+  starTable,
+  TABLE_SPEEDS,
+  type StarClass,
+  type StarKind,
+} from './star.ts';
 
 /*
  * Story 2.3: shells as records.
@@ -15,8 +24,28 @@ import { burnTime, STAR_CLASSES, starTable, type StarClass } from './star.ts';
 export type ShellClass = keyof typeof STAR_CLASSES;
 export const CLASS_ORDER: readonly ShellClass[] = ['small', 'medium', 'large'];
 
-/** How the stars were packed: a Japanese warimono's sphere, or a Western canister's rougher one. */
-export type Pattern = 'sphere' | 'canister';
+/**
+ * How the stars were packed: a Japanese warimono's sphere, a Western canister's rougher one, a ring
+ * in a tilted plane, a palm's few comets, or a flat shape (3.6).
+ */
+export type Pattern = 'sphere' | 'canister' | 'ring' | 'palm' | 'shape';
+const PATTERN_IDS: Record<Pattern, number> = { sphere: 0, canister: 1, ring: 2, palm: 3, shape: 4 };
+
+/**
+ * Stars that do more than fly and burn, all still a pure function of the time (M1): a crossette's
+ * star splits in four; a crackle star bursts into microstars with a pop; a glitter star sheds
+ * sparks that flash after a delay; a strobe star blinks.
+ */
+export type Special = 'crossette' | 'crackle' | 'glitter' | 'strobe';
+const SPECIAL_IDS: Record<Special, number> = { crossette: 1, crackle: 2, glitter: 3, strobe: 4 };
+/** Instances each star takes: itself, then its pieces, microstars or sparks. */
+export const PIECES: Record<Special | 'none', number> = {
+  none: 1,
+  crossette: 5,
+  crackle: 7,
+  glitter: 9,
+  strobe: 1,
+};
 
 export interface Shell {
   /** Seconds from the start of the programme to the launch. */
@@ -29,17 +58,37 @@ export interface Shell {
   /** Where it was fired from, metres across. */
   from: number;
   class: ShellClass;
+  /** The kind of star it carries; the class's own unless given (a willow's charcoal stars). */
+  star?: StarKind;
   stars: number;
   /** Composition id (src/gpu/spectra/emission.ts). */
   colour: string;
   /** An inner burst: its colour, its share of the stars, and its speed as a share of the shell's. */
   pistil?: { colour: string; share: number; speed: number };
+  /** A second petal inside the first (the double-petalled yae-shin, 3.5), as a pistil is. */
+  petal?: { colour: string; share: number; speed: number };
+  /** The stars change colour this share of the way through their burn (henka, 3.5). */
+  change?: { colour: string; at: number };
   pattern: Pattern;
-  /** Seconds of spark trail each star leaves; 0 for a peony's clean stars. */
+  /** For a ring or a shape: the normal of its plane (x across, y up, z towards the viewer). */
+  normal?: readonly [number, number, number];
+  /** For a shape: its index in the renderer's shape table. */
+  shape?: number;
+  special?: { kind: Special; param: number };
+  /** Seconds of trail each star leaves; 0 for a peony's clean stars. */
   trail: number;
+  /** Light of the spark tail the stars shed (charcoal, as gold), as a share of a star's; 0 for none. */
+  sparks?: number;
+  /** Seconds of the rising comet's tail; a palm's is long and thick. */
+  comet?: number;
   /** Per-shell randomness: the turn of its star pattern, and its stars' scatter. */
   seed: number;
 }
+
+/** The kind of star a shell carries. */
+export const starOf = (s: Shell): StarKind => s.star ?? s.class;
+/** Seconds a shell's stars burn. */
+export const burnOf = (s: Shell) => burnTime(STAR_KINDS[starOf(s)]);
 
 export interface ShellClassInfo {
   star: StarClass;
@@ -78,7 +127,7 @@ export const SHELL_CLASSES: Record<ShellClass, ShellClassInfo> = {
 };
 
 /** Seconds a shell is in view: its rise, its burn, its longest trail and the stars' spread. */
-export const shellSpan = (s: Shell) => s.rise + SHELL_CLASSES[s.class].burn * 1.15 + s.trail;
+export const shellSpan = (s: Shell) => s.rise + burnOf(s) * 1.15 + s.trail + 0.5;
 
 export interface ProgrammeOptions {
   /** Shells a minute. */
@@ -91,9 +140,21 @@ export interface ProgrammeOptions {
   gap: number;
   /** Share of each class, small to large. */
   mix?: readonly [number, number, number];
+  /**
+   * Turns the plain shell the programme made into the effect's own (a willow, a ring), from its
+   * own hashes: `h(k)` is uniform in [0, 1) for each k, different for every shell.
+   */
+  design?: (shell: Shell, h: (k: number) => number, index: number) => Shell;
 }
 
-const PEONY_COLOURS = ['strontium', 'barium', 'copper', 'calcium', 'violet', 'white'] as const;
+export const PEONY_COLOURS = [
+  'strontium',
+  'barium',
+  'copper',
+  'calcium',
+  'violet',
+  'white',
+] as const;
 
 /**
  * A looping programme made from a seed: breaks spaced at least `gap` apart, peonies in the salt
@@ -118,7 +179,7 @@ export function programme(seed: number, options: ProgrammeOptions): Shell[] {
     const pistilColour = PEONY_COLOURS[Math.floor(h(5) * PEONY_COLOURS.length)]!;
     const x = (h(6) - 0.5) * options.width;
     const rise = info.rise * (0.92 + 0.16 * h(7));
-    shells.push({
+    const shell: Shell = {
       launch: breakAt - rise,
       rise,
       x,
@@ -132,9 +193,11 @@ export function programme(seed: number, options: ProgrammeOptions): Shell[] {
           ? { colour: pistilColour, share: 0.3, speed: 0.45 }
           : undefined,
       pattern: h(12) < 0.5 ? 'sphere' : 'canister',
-      trail: chrysanthemum ? 0.55 : 0.06,
+      trail: chrysanthemum ? 0.55 : 0,
+      sparks: chrysanthemum ? 0.5 : 0,
       seed: h(13),
-    });
+    };
+    shells.push(options.design ? options.design(shell, (k) => h(100 + k), i) : shell);
   }
   return shells;
 }
@@ -170,7 +233,7 @@ export function heldTime(list: readonly Shell[], period: number): number {
     for (const s of activeShells(list, t, period)) {
       const age = -s.launch - s.rise;
       if (age > -0.5 && age < 0.5) breaking = true;
-      if (age > 0.5 && age < 0.75 * SHELL_CLASSES[s.class].burn) open++;
+      if (age > 0.5 && age < 0.75 * burnOf(s)) open++;
     }
     moments.push({ t, open, breaking });
   }
@@ -183,8 +246,15 @@ export function heldTime(list: readonly Shell[], period: number): number {
   return pick.t;
 }
 
-/** Floats per shell in the GPU's record: five vec4s. */
-export const SHELL_FLOATS = 20;
+/** Floats per shell in the GPU's record: ten vec4s (the layout is read in shells.wgsl). */
+export const SHELL_FLOATS = 40;
+
+/** Most instances a shell draws: its comet, then its stars and their pieces. */
+export const SHELL_INSTANCES = 241;
+
+/** Stars a shell can draw, given what each one takes. */
+export const starsDrawn = (s: Shell) =>
+  Math.min(s.stars, Math.floor((SHELL_INSTANCES - 1) / PIECES[s.special?.kind ?? 'none']));
 
 /**
  * Packs active shells for the shader. `colours` gives each composition's linear colour (2.2's
@@ -195,13 +265,17 @@ export function packShells(
   colours: ReadonlyMap<string, readonly number[]>,
   out: Float32Array,
 ): number {
-  const n = Math.min(shells.length, out.length / SHELL_FLOATS);
+  const n = Math.min(shells.length, Math.floor(out.length / SHELL_FLOATS));
+  const gold = colours.get('gold')!;
   for (let i = 0; i < n; i++) {
     const s = shells[i]!;
     const o = i * SHELL_FLOATS;
     const c = colours.get(s.colour)!;
     const p = s.pistil ? colours.get(s.pistil.colour)! : c;
-    const info = SHELL_CLASSES[s.class];
+    const q = s.petal ? colours.get(s.petal.colour)! : c;
+    const k = s.change ? colours.get(s.change.colour)! : c;
+    const normal = s.normal ?? [0, 0, 1];
+    const pieces = PIECES[s.special?.kind ?? 'none'];
     out.set(
       [
         // Age since launch, rise, break x, break height.
@@ -209,26 +283,51 @@ export function packShells(
         s.rise,
         s.x,
         s.height,
-        // Colour, star count.
+        // Colour, stars drawn.
         c[0]!,
         c[1]!,
         c[2]!,
-        s.stars,
+        starsDrawn(s),
         // Pistil colour, its share of the stars.
         p[0]!,
         p[1]!,
         p[2]!,
         s.pistil?.share ?? 0,
-        // Trail seconds, pattern, seed, class index.
+        // Trail seconds, pattern, seed, star kind.
         s.trail,
-        s.pattern === 'canister' ? 1 : 0,
+        PATTERN_IDS[s.pattern],
         s.seed,
-        CLASS_ORDER.indexOf(s.class),
-        // Launch x, burn seconds, pistil speed, the class's table step.
+        KIND_ORDER.indexOf(starOf(s)),
+        // Launch x, burn seconds, pistil speed, the comet's tail.
         s.from,
-        info.burn,
+        burnOf(s),
         s.pistil?.speed ?? 1,
-        info.burn / (TABLE_SAMPLES - 1),
+        s.comet ?? 0.15,
+        // Second petal colour and share.
+        q[0]!,
+        q[1]!,
+        q[2]!,
+        s.petal?.share ?? 0,
+        // Colour change and when.
+        k[0]!,
+        k[1]!,
+        k[2]!,
+        s.change?.at ?? 0,
+        // Special, its parameter, second petal speed, shape.
+        s.special ? SPECIAL_IDS[s.special.kind] : 0,
+        s.special?.param ?? 0,
+        s.petal?.speed ?? 1,
+        s.shape ?? 0,
+        // Spark tail colour and light.
+        gold[0]!,
+        gold[1]!,
+        gold[2]!,
+        s.sparks ?? 0,
+        // Plane normal, pieces per star.
+        normal[0],
+        normal[1],
+        normal[2],
+        pieces,
       ],
       o,
     );
@@ -237,14 +336,21 @@ export function packShells(
 }
 
 export const TABLE_SAMPLES = 48;
-export const TABLE_ANGLES = 9;
+export const TABLE_ANGLES = 17;
 
-/** Every class's star table, one after another, as vec2s for a storage buffer. */
+/** Rows of the table texture: one per kind, launch speed and angle. */
+export const TABLE_ROWS = KIND_ORDER.length * TABLE_SPEEDS.length * TABLE_ANGLES;
+
+/**
+ * Every kind's star table (`KIND_ORDER`), as an rg32float texture's rows: one row per kind, launch
+ * speed and angle, `TABLE_SAMPLES` texels across. A texture, not a uniform buffer: compatibility
+ * mode binds at most 16 kB of uniforms, and the tables are 450 kB.
+ */
 export function packTables(): Float32Array {
-  const per = TABLE_SAMPLES * TABLE_ANGLES * 2;
-  const out = new Float32Array(per * CLASS_ORDER.length);
-  CLASS_ORDER.forEach((cls, i) => {
-    out.set(starTable(SHELL_CLASSES[cls].star, TABLE_SAMPLES, TABLE_ANGLES).xy, i * per);
+  const per = TABLE_SAMPLES * TABLE_ANGLES * TABLE_SPEEDS.length * 2;
+  const out = new Float32Array(per * KIND_ORDER.length);
+  KIND_ORDER.forEach((kind, i) => {
+    out.set(starTable(STAR_KINDS[kind], TABLE_SAMPLES, TABLE_ANGLES).xy, i * per);
   });
   return out;
 }

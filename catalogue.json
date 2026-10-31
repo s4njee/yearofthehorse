@@ -29,6 +29,120 @@
       }
     },
     {
+      "id": "crossette",
+      "title": "Crossette",
+      "summary": "Stars that split in four part way out, each split a small cross, so the burst branches. Still a pure function of time: each piece starts where its star split, at its velocity then plus a kick.",
+      "epic": "3",
+      "tier": "A",
+      "tags": [
+        "fireworks",
+        "hero"
+      ],
+      "status": "demo",
+      "poster": "src/effects/crossette/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "none",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A 10-bit AV1 loop, or the poster.",
+        "useCases": [
+          "A hero for a celebration or an event"
+        ]
+      }
+    },
+    {
+      "id": "display",
+      "title": "Display over the river",
+      "summary": "A whole show over a river, after the hanabi taikai on the Sumida: every kind of shell in one programme, the smoke each break leaves drifting in the wind and lit from inside by later bursts, a far bank of dark buildings, and the river reflecting it all in streaks.",
+      "epic": "3",
+      "tier": "B",
+      "tags": [
+        "fireworks",
+        "hero",
+        "japan"
+      ],
+      "status": "demo",
+      "poster": "src/effects/display/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "none",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A 10-bit AV1 loop of the programme, or the poster.",
+        "useCases": [
+          "A full-bleed hero for a festival",
+          "A summer festival page"
+        ]
+      }
+    },
+    {
+      "id": "glitter-finale",
+      "title": "Glitter, crackle and strobe",
+      "summary": "The stars that are not steady: glitter sheds sparks that each flash once after a delay, crackle bursts into microstars with a pop, strobe blinks. Held under the flash rule, with a full-rate strobe as a gated preset.",
+      "epic": "3",
+      "tier": "A",
+      "tags": [
+        "fireworks",
+        "hero"
+      ],
+      "status": "demo",
+      "poster": "src/effects/glitter-finale/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "low",
+        "flashPresets": [
+          "full-strobe"
+        ],
+        "pattern": "none",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A 10-bit AV1 loop, or the poster.",
+        "useCases": [
+          "The end of a show",
+          "A New Year countdown"
+        ]
+      }
+    },
+    {
+      "id": "palm-and-ring",
+      "title": "Palms and rings",
+      "summary": "Palms, a thick rising trunk and a few big comets shedding gold, and rings, stars round a circle in a plane at whatever tilt the shell broke at, so each is seen as an ellipse.",
+      "epic": "3",
+      "tier": "A",
+      "tags": [
+        "fireworks",
+        "hero"
+      ],
+      "status": "demo",
+      "poster": "src/effects/palm-and-ring/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "none",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A 10-bit AV1 loop, or the poster.",
+        "useCases": [
+          "A hero for a celebration or an event"
+        ]
+      }
+    },
+    {
       "id": "peony-display",
       "title": "Peony display",
       "summary": "A drop-in fireworks display behind a hero: peonies, pistils and gold chrysanthemums from a looping programme of shells, every star a burning sphere slowed by the air, placed from a table of its flight, and coloured from its composition’s emission spectrum, in Display P3 where the screen has it.",
@@ -56,6 +170,92 @@
         "useCases": [
           "A dark hero for a celebration or an event",
           "New Year and festival pages"
+        ]
+      }
+    },
+    {
+      "id": "shaped-shells",
+      "title": "Shaped shells",
+      "summary": "Hearts, stars, smiles and a horse’s head as flat patterns of stars, or the page’s own SVG path, each seen at the angle its shell happened to break at: most come out skewed, as real ones do.",
+      "epic": "3",
+      "tier": "A",
+      "tags": [
+        "fireworks",
+        "hero"
+      ],
+      "status": "demo",
+      "poster": "src/effects/shaped-shells/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "none",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A 10-bit AV1 loop, or the poster.",
+        "useCases": [
+          "A playful hero for a celebration",
+          "A brand’s mark in the sky, honestly skewed"
+        ]
+      }
+    },
+    {
+      "id": "warimono",
+      "title": "Warimono",
+      "summary": "The Japanese round shell: a near-perfect sphere of densely packed stars, the double-petalled yae-shin with a pistil of another colour, and stars that change colour as they burn (henka).",
+      "epic": "3",
+      "tier": "A",
+      "tags": [
+        "fireworks",
+        "hero",
+        "japan"
+      ],
+      "status": "demo",
+      "poster": "src/effects/warimono/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "none",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A 10-bit AV1 loop, or the poster.",
+        "useCases": [
+          "A summer festival (hanabi taikai) page",
+          "A hero for a Japanese event"
+        ]
+      }
+    },
+    {
+      "id": "willow",
+      "title": "Willow and kamuro",
+      "summary": "Gold willows and kamuro: heavy charcoal stars that burn for seconds and shed sparks that hang and fall, so each burst droops like a weeping willow. The slowest, calmest shell, and the one the motion check minds most, so it starts behind the gate.",
+      "epic": "3",
+      "tier": "A",
+      "tags": [
+        "fireworks",
+        "hero"
+      ],
+      "status": "demo",
+      "poster": "src/effects/willow/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "none",
+        "lightPage": "no",
+        "motionDefaults": true,
+        "features": {
+          "required": []
+        },
+        "fallback": "A 10-bit AV1 loop, or the poster.",
+        "useCases": [
+          "A slow, calm hero for a celebration",
+          "A summer festival page"
         ]
       }
     }

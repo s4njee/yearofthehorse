@@ -149,6 +149,8 @@ async function loadHud(effect, view) {
 const report = [];
 let failures = 0;
 try {
+  // Gated effects are checked running, as a visitor who started them sees them.
+  await chrome.acceptGates(base, effects);
   for (const effect of effects) {
     mkdirSync(join(out, effect), { recursive: true });
     for (const view of views) {

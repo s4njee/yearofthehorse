@@ -90,6 +90,18 @@ export async function launchChrome(chromePath = DEFAULT_CHROME) {
       return () => listeners.delete(listener);
     },
     errors: [],
+    /**
+     * Starts each effect as a visitor who clicked "Start it" on its gate would: an effect gated
+     * at its defaults (`motionDefaults`) is otherwise only its notice. The gate remembers the
+     * choice in the tab's sessionStorage, so this loads the site once and sets it for each id.
+     */
+    async acceptGates(base, ids) {
+      await page('Page.navigate', { url: `${base}/` });
+      await sleep(500);
+      await session.evaluate(
+        `for (const id of ${JSON.stringify(ids)}) sessionStorage.setItem('yh-gate:' + id + ':strong-dose', '1')`,
+      );
+    },
     async evaluate(expression) {
       const result = await page('Runtime.evaluate', {
         expression,

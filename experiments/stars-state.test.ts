@@ -1,6 +1,7 @@
 import { writeFileSync } from 'node:fs';
 import { it, vi } from 'vitest';
 import { packTables, SHELL_CLASSES, TABLE_ANGLES, TABLE_SAMPLES } from '../src/gpu/shells/shell.ts';
+import { TABLE_SPEEDS } from '../src/gpu/shells/star.ts';
 import { createBenchDevice } from '../tests/bench.ts';
 
 vi.setConfig({ testTimeout: 600_000 });
@@ -89,7 +90,8 @@ fn place(d: vec3f, t: f32) -> vec2f {
   let ut = clamp(t / step, 0.0, ${TABLE_SAMPLES - 1}.0);
   let i0 = min(u32(ut), ${TABLE_SAMPLES - 2}u);
   let ft = ut - f32(i0);
-  let base = ${TABLE_ANGLES * TABLE_SAMPLES}u;
+  // The medium kind (second in KIND_ORDER) at full speed (TABLE_SPEEDS[7]).
+  let base = ${(1 * TABLE_SPEEDS.length + TABLE_SPEEDS.indexOf(1)) * TABLE_ANGLES * TABLE_SAMPLES}u;
   let lo = mix(tables[base + a0 * ${TABLE_SAMPLES}u + i0], tables[base + a0 * ${TABLE_SAMPLES}u + i0 + 1u], ft);
   let hi = mix(tables[base + (a0 + 1u) * ${TABLE_SAMPLES}u + i0], tables[base + (a0 + 1u) * ${TABLE_SAMPLES}u + i0 + 1u], ft);
   let f = mix(lo, hi, fa);

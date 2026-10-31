@@ -70,6 +70,13 @@ export interface Scorecard {
    */
   motionPresets?: readonly string[];
   /**
+   * The effect goes over the whole-field motion caps at its own defaults, so every setting of it
+   * starts behind the gate, the gallery does not animate it, and the notice offers no calm
+   * version. For effects whose subject is the motion the caps judge, such as a burst's looming
+   * (Year of the Horse 2.8), until the rules say how to judge it.
+   */
+  motionDefaults?: boolean;
+  /**
    * Whether it reads over a light page: `yes` as it is, `underlay` only with a dark underlay or
    * backplate behind it, `no` when it needs a dark region of its own.
    */

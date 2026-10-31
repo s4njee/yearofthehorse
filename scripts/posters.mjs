@@ -51,6 +51,8 @@ try {
     deviceScaleFactor: 1,
     mobile: false,
   });
+  // A poster is the effect's picture, not its gate's notice.
+  await chrome.acceptGates(base, ids);
   for (const id of ids) {
     chrome.errors.length = 0;
     // An effect whose page opens in a context (meta.layout) is captured on that mock page: a glint

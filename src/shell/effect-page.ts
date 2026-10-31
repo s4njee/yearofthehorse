@@ -10,7 +10,7 @@ import {
   PRESET_KEY,
   valuesFromQuery,
 } from './params-url.ts';
-import { gateReasons } from '../gpu/safety/gate.ts';
+import { gateReasons, startsGated } from '../gpu/safety/gate.ts';
 import { closeGate, gateAccepted, showGate } from './gate.ts';
 import { displaySupportsHdr } from '../gpu/canvas.ts';
 import { displaySupportsP3 } from '../gpu/colour/wide-gamut.ts';
@@ -218,6 +218,7 @@ export function mountEffectPage(container: HTMLElement, shell: ShellContext, id:
         id,
         preset,
         reasons,
+        calm: !startsGated(meta),
         onStart: () => mounted.resume(),
         onCalm: () => {
           const changes: Record<string, null> = { [PRESET_KEY]: null };

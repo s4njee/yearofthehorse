@@ -1,54 +1,216 @@
 {
   "eager": {
     "chunks": 6,
-    "raw": 14156,
-    "gzip": 6794
+    "raw": 19330,
+    "gzip": 8189
   },
   "effects": {
-    "hello": {
-      "chunks": 13,
-      "ownGzip": 1041,
-      "gzip": 29189,
-      "raw": 74551,
+    "crossette": {
+      "chunks": 14,
+      "ownGzip": 339,
+      "gzip": 39909,
+      "raw": 101699,
       "files": [
         "assets/colour-caps-rW91Sa46.js",
-        "assets/dose-D7hN0jZo.js",
+        "assets/crossette-hhTvtuCg.js",
+        "assets/designs-C7aecnRg.js",
+        "assets/fullscreen-BDXEFvdz.js",
+        "assets/gamut-COkJmrKM.js",
+        "assets/hash-bWx0F85T.js",
+        "assets/oklab-CS7oj3eq.js",
+        "assets/profiler-Bi27xYp-.js",
+        "assets/shader-xzRCRHTt.js",
+        "assets/show-BzRIcK-r.js",
+        "assets/tail-C5JOALCP.js",
+        "assets/thinfilm-Ci8F6ZWx.js",
+        "assets/types-UuBQX0yW.js",
+        "assets/wide-gamut-Ctdu4uAA.js"
+      ],
+      "gzipKb": 39
+    },
+    "display": {
+      "chunks": 18,
+      "ownGzip": 2439,
+      "gzip": 49553,
+      "raw": 129504,
+      "files": [
+        "assets/colour-caps-rW91Sa46.js",
+        "assets/designs-C7aecnRg.js",
+        "assets/display-Bj2vJRbU.js",
+        "assets/display-iTmMGYr5.js",
+        "assets/fbm-C42g5uzM.js",
+        "assets/fullscreen-BDXEFvdz.js",
+        "assets/gamut-COkJmrKM.js",
+        "assets/hash-bWx0F85T.js",
+        "assets/math-fT5w54uK.js",
+        "assets/noise-BHiu8YkL.js",
+        "assets/oklab-CS7oj3eq.js",
+        "assets/profiler-Bi27xYp-.js",
+        "assets/shader-xzRCRHTt.js",
+        "assets/show-BzRIcK-r.js",
+        "assets/tail-C5JOALCP.js",
+        "assets/thinfilm-Ci8F6ZWx.js",
+        "assets/types-UuBQX0yW.js",
+        "assets/wide-gamut-Ctdu4uAA.js"
+      ],
+      "gzipKb": 48.4
+    },
+    "glitter-finale": {
+      "chunks": 14,
+      "ownGzip": 448,
+      "gzip": 40018,
+      "raw": 101942,
+      "files": [
+        "assets/colour-caps-rW91Sa46.js",
+        "assets/designs-C7aecnRg.js",
+        "assets/fullscreen-BDXEFvdz.js",
+        "assets/gamut-COkJmrKM.js",
+        "assets/glitter-finale-BWdx_Xke.js",
+        "assets/hash-bWx0F85T.js",
+        "assets/oklab-CS7oj3eq.js",
+        "assets/profiler-Bi27xYp-.js",
+        "assets/shader-xzRCRHTt.js",
+        "assets/show-BzRIcK-r.js",
+        "assets/tail-C5JOALCP.js",
+        "assets/thinfilm-Ci8F6ZWx.js",
+        "assets/types-UuBQX0yW.js",
+        "assets/wide-gamut-Ctdu4uAA.js"
+      ],
+      "gzipKb": 39.1
+    },
+    "hello": {
+      "chunks": 12,
+      "ownGzip": 1028,
+      "gzip": 29119,
+      "raw": 74538,
+      "files": [
+        "assets/colour-caps-rW91Sa46.js",
         "assets/fireworks-CL-5M0NJ.js",
         "assets/fullscreen-BDXEFvdz.js",
         "assets/gamut-COkJmrKM.js",
         "assets/hash-bWx0F85T.js",
-        "assets/hello-DDD7hc5O.js",
+        "assets/hello-IaUOQurG.js",
         "assets/oklab-CS7oj3eq.js",
         "assets/profiler-Bi27xYp-.js",
         "assets/shader-xzRCRHTt.js",
-        "assets/tail-D1HLsylU.js",
+        "assets/tail-C5JOALCP.js",
         "assets/thinfilm-Ci8F6ZWx.js",
-        "assets/types-ci2WwWg0.js"
+        "assets/types-UuBQX0yW.js"
       ],
-      "gzipKb": 28.5
+      "gzipKb": 28.4
     },
-    "peony-display": {
+    "palm-and-ring": {
       "chunks": 14,
-      "ownGzip": 4149,
-      "gzip": 33294,
-      "raw": 83611,
+      "ownGzip": 367,
+      "gzip": 39937,
+      "raw": 101766,
       "files": [
         "assets/colour-caps-rW91Sa46.js",
-        "assets/display-D1Q61LC1.js",
-        "assets/dose-D7hN0jZo.js",
+        "assets/designs-C7aecnRg.js",
         "assets/fullscreen-BDXEFvdz.js",
         "assets/gamut-COkJmrKM.js",
         "assets/hash-bWx0F85T.js",
         "assets/oklab-CS7oj3eq.js",
-        "assets/peony-display-BpJ3tGU_.js",
+        "assets/palm-and-ring-BlgqBgr3.js",
         "assets/profiler-Bi27xYp-.js",
         "assets/shader-xzRCRHTt.js",
-        "assets/tail-D1HLsylU.js",
+        "assets/show-BzRIcK-r.js",
+        "assets/tail-C5JOALCP.js",
         "assets/thinfilm-Ci8F6ZWx.js",
-        "assets/types-ci2WwWg0.js",
+        "assets/types-UuBQX0yW.js",
         "assets/wide-gamut-Ctdu4uAA.js"
       ],
-      "gzipKb": 32.5
+      "gzipKb": 39
+    },
+    "peony-display": {
+      "chunks": 13,
+      "ownGzip": 297,
+      "gzip": 39169,
+      "raw": 100118,
+      "files": [
+        "assets/colour-caps-rW91Sa46.js",
+        "assets/fullscreen-BDXEFvdz.js",
+        "assets/gamut-COkJmrKM.js",
+        "assets/hash-bWx0F85T.js",
+        "assets/oklab-CS7oj3eq.js",
+        "assets/peony-display-V0GTA9Hk.js",
+        "assets/profiler-Bi27xYp-.js",
+        "assets/shader-xzRCRHTt.js",
+        "assets/show-BzRIcK-r.js",
+        "assets/tail-C5JOALCP.js",
+        "assets/thinfilm-Ci8F6ZWx.js",
+        "assets/types-UuBQX0yW.js",
+        "assets/wide-gamut-Ctdu4uAA.js"
+      ],
+      "gzipKb": 38.3
+    },
+    "shaped-shells": {
+      "chunks": 13,
+      "ownGzip": 2123,
+      "gzip": 40995,
+      "raw": 103797,
+      "files": [
+        "assets/colour-caps-rW91Sa46.js",
+        "assets/fullscreen-BDXEFvdz.js",
+        "assets/gamut-COkJmrKM.js",
+        "assets/hash-bWx0F85T.js",
+        "assets/oklab-CS7oj3eq.js",
+        "assets/profiler-Bi27xYp-.js",
+        "assets/shader-xzRCRHTt.js",
+        "assets/shaped-shells-CTrx9Dm2.js",
+        "assets/show-BzRIcK-r.js",
+        "assets/tail-C5JOALCP.js",
+        "assets/thinfilm-Ci8F6ZWx.js",
+        "assets/types-UuBQX0yW.js",
+        "assets/wide-gamut-Ctdu4uAA.js"
+      ],
+      "gzipKb": 40
+    },
+    "warimono": {
+      "chunks": 14,
+      "ownGzip": 367,
+      "gzip": 39937,
+      "raw": 101758,
+      "files": [
+        "assets/colour-caps-rW91Sa46.js",
+        "assets/designs-C7aecnRg.js",
+        "assets/fullscreen-BDXEFvdz.js",
+        "assets/gamut-COkJmrKM.js",
+        "assets/hash-bWx0F85T.js",
+        "assets/oklab-CS7oj3eq.js",
+        "assets/profiler-Bi27xYp-.js",
+        "assets/shader-xzRCRHTt.js",
+        "assets/show-BzRIcK-r.js",
+        "assets/tail-C5JOALCP.js",
+        "assets/thinfilm-Ci8F6ZWx.js",
+        "assets/types-UuBQX0yW.js",
+        "assets/warimono-x8Kg0bDD.js",
+        "assets/wide-gamut-Ctdu4uAA.js"
+      ],
+      "gzipKb": 39
+    },
+    "willow": {
+      "chunks": 14,
+      "ownGzip": 419,
+      "gzip": 39989,
+      "raw": 101876,
+      "files": [
+        "assets/colour-caps-rW91Sa46.js",
+        "assets/designs-C7aecnRg.js",
+        "assets/fullscreen-BDXEFvdz.js",
+        "assets/gamut-COkJmrKM.js",
+        "assets/hash-bWx0F85T.js",
+        "assets/oklab-CS7oj3eq.js",
+        "assets/profiler-Bi27xYp-.js",
+        "assets/shader-xzRCRHTt.js",
+        "assets/show-BzRIcK-r.js",
+        "assets/tail-C5JOALCP.js",
+        "assets/thinfilm-Ci8F6ZWx.js",
+        "assets/types-UuBQX0yW.js",
+        "assets/wide-gamut-Ctdu4uAA.js",
+        "assets/willow-qa7Pl0I1.js"
+      ],
+      "gzipKb": 39.1
     }
   }
 }

@@ -31,6 +31,8 @@ export interface GateOptions {
   onStart(): void;
   /** The visitor chose the calm defaults instead. */
   onCalm(): void;
+  /** Offer the calm defaults. False when the defaults are themselves gated. Default true. */
+  calm?: boolean;
 }
 
 const open = new WeakMap<HTMLElement, Unmount>();
@@ -72,7 +74,8 @@ export function showGate(container: HTMLElement, options: GateOptions): Unmount 
   calm.type = 'button';
   calm.className = 'yh-button';
   calm.textContent = 'Use the calm defaults';
-  actions.append(start, calm);
+  actions.append(start);
+  if (options.calm !== false) actions.append(calm);
   panel.append(title, text, actions);
   root.append(panel);
   container.append(root);

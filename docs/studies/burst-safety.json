@@ -1,0 +1,871 @@
+{
+  "measuredAt": "2026-10-30T17:21:30.934Z",
+  "caps": {
+    "rotation": 5,
+    "zoom": 0.1,
+    "drift": 0.05
+  },
+  "bursts": [
+    {
+      "share": 0.06,
+      "place": "centre",
+      "age": 0.3,
+      "zoom": 0,
+      "drift": 0,
+      "blocks": 3,
+      "area": 0,
+      "own": 3.271
+    },
+    {
+      "share": 0.06,
+      "place": "centre",
+      "age": 0.8,
+      "zoom": 0,
+      "drift": 0,
+      "blocks": 4,
+      "area": 0,
+      "own": 1.138
+    },
+    {
+      "share": 0.06,
+      "place": "centre",
+      "age": 1.5,
+      "zoom": 0,
+      "drift": 0,
+      "blocks": 11,
+      "area": 0,
+      "own": 0.423
+    },
+    {
+      "share": 0.06,
+      "place": "centre",
+      "age": 2.5,
+      "zoom": 0,
+      "drift": 0,
+      "blocks": 18,
+      "area": 0,
+      "own": 0
+    },
+    {
+      "share": 0.06,
+      "place": "corner",
+      "age": 0.3,
+      "zoom": 0,
+      "drift": 0,
+      "blocks": 3,
+      "area": 0,
+      "own": 3.271
+    },
+    {
+      "share": 0.06,
+      "place": "corner",
+      "age": 0.8,
+      "zoom": 0,
+      "drift": 0,
+      "blocks": 6,
+      "area": 0,
+      "own": 1.138
+    },
+    {
+      "share": 0.06,
+      "place": "corner",
+      "age": 1.5,
+      "zoom": 0,
+      "drift": 0,
+      "blocks": 15,
+      "area": 0,
+      "own": 0.423
+    },
+    {
+      "share": 0.06,
+      "place": "corner",
+      "age": 2.5,
+      "zoom": 0,
+      "drift": 0,
+      "blocks": 17,
+      "area": 0,
+      "own": 0
+    },
+    {
+      "share": 0.12,
+      "place": "centre",
+      "age": 0.3,
+      "zoom": 0,
+      "drift": 0,
+      "blocks": 2,
+      "area": 0,
+      "own": 3.271
+    },
+    {
+      "share": 0.12,
+      "place": "centre",
+      "age": 0.8,
+      "zoom": 0,
+      "drift": 0,
+      "blocks": 12,
+      "area": 0,
+      "own": 1.138
+    },
+    {
+      "share": 0.12,
+      "place": "centre",
+      "age": 1.5,
+      "zoom": 0.419,
+      "drift": 0.008,
+      "blocks": 41,
+      "area": 0.111,
+      "own": 0.423
+    },
+    {
+      "share": 0.12,
+      "place": "centre",
+      "age": 2.5,
+      "zoom": 0.003,
+      "drift": 0,
+      "blocks": 53,
+      "area": 0.126,
+      "own": 0
+    },
+    {
+      "share": 0.12,
+      "place": "corner",
+      "age": 0.3,
+      "zoom": 0,
+      "drift": 0,
+      "blocks": 3,
+      "area": 0,
+      "own": 3.271
+    },
+    {
+      "share": 0.12,
+      "place": "corner",
+      "age": 0.8,
+      "zoom": 0,
+      "drift": 0,
+      "blocks": 14,
+      "area": 0,
+      "own": 1.138
+    },
+    {
+      "share": 0.12,
+      "place": "corner",
+      "age": 1.5,
+      "zoom": 0.426,
+      "drift": 0.094,
+      "blocks": 38,
+      "area": 0.111,
+      "own": 0.423
+    },
+    {
+      "share": 0.12,
+      "place": "corner",
+      "age": 2.5,
+      "zoom": 0.003,
+      "drift": 0.001,
+      "blocks": 53,
+      "area": 0.126,
+      "own": 0
+    },
+    {
+      "share": 0.25,
+      "place": "centre",
+      "age": 0.3,
+      "zoom": 0,
+      "drift": 0,
+      "blocks": 3,
+      "area": 0,
+      "own": 3.271
+    },
+    {
+      "share": 0.25,
+      "place": "centre",
+      "age": 0.8,
+      "zoom": 1.116,
+      "drift": 0.008,
+      "blocks": 57,
+      "area": 0.178,
+      "own": 1.138
+    },
+    {
+      "share": 0.25,
+      "place": "centre",
+      "age": 1.5,
+      "zoom": 0.425,
+      "drift": 0.019,
+      "blocks": 103,
+      "area": 0.387,
+      "own": 0.423
+    },
+    {
+      "share": 0.25,
+      "place": "centre",
+      "age": 2.5,
+      "zoom": 0,
+      "drift": 0,
+      "blocks": 107,
+      "area": 0.442,
+      "own": 0
+    },
+    {
+      "share": 0.25,
+      "place": "corner",
+      "age": 0.3,
+      "zoom": 0,
+      "drift": 0,
+      "blocks": 5,
+      "area": 0,
+      "own": 3.271
+    },
+    {
+      "share": 0.25,
+      "place": "corner",
+      "age": 0.8,
+      "zoom": 1.112,
+      "drift": 0.254,
+      "blocks": 55,
+      "area": 0.178,
+      "own": 1.138
+    },
+    {
+      "share": 0.25,
+      "place": "corner",
+      "age": 1.5,
+      "zoom": 0.416,
+      "drift": 0.098,
+      "blocks": 87,
+      "area": 0.308,
+      "own": 0.423
+    },
+    {
+      "share": 0.25,
+      "place": "corner",
+      "age": 2.5,
+      "zoom": 0.001,
+      "drift": 0,
+      "blocks": 83,
+      "area": 0.36,
+      "own": 0
+    },
+    {
+      "share": 0.5,
+      "place": "centre",
+      "age": 0.3,
+      "zoom": 0.256,
+      "drift": 0.018,
+      "blocks": 23,
+      "area": 0.142,
+      "own": 3.271
+    },
+    {
+      "share": 0.5,
+      "place": "centre",
+      "age": 0.8,
+      "zoom": 0.344,
+      "drift": 0.008,
+      "blocks": 63,
+      "area": 0.533,
+      "own": 1.138
+    },
+    {
+      "share": 0.5,
+      "place": "centre",
+      "age": 1.5,
+      "zoom": 0.428,
+      "drift": 0.041,
+      "blocks": 70,
+      "area": 0.83,
+      "own": 0.423
+    },
+    {
+      "share": 0.5,
+      "place": "centre",
+      "age": 2.5,
+      "zoom": 0,
+      "drift": 0,
+      "blocks": 56,
+      "area": 0.83,
+      "own": 0
+    },
+    {
+      "share": 0.5,
+      "place": "corner",
+      "age": 0.3,
+      "zoom": 0,
+      "drift": 0,
+      "blocks": 19,
+      "area": 0,
+      "own": 3.271
+    },
+    {
+      "share": 0.5,
+      "place": "corner",
+      "age": 0.8,
+      "zoom": 0.434,
+      "drift": 0.094,
+      "blocks": 40,
+      "area": 0.415,
+      "own": 1.138
+    },
+    {
+      "share": 0.5,
+      "place": "corner",
+      "age": 1.5,
+      "zoom": 0.406,
+      "drift": 0.111,
+      "blocks": 51,
+      "area": 0.563,
+      "own": 0.423
+    },
+    {
+      "share": 0.5,
+      "place": "corner",
+      "age": 2.5,
+      "zoom": 0.001,
+      "drift": 0,
+      "blocks": 40,
+      "area": 0.622,
+      "own": 0
+    }
+  ],
+  "salutes": [
+    {
+      "share": 0.05,
+      "rate": 1,
+      "verdict": "low",
+      "cell": 1,
+      "areaPx": 0
+    },
+    {
+      "share": 0.05,
+      "rate": 2,
+      "verdict": "low",
+      "cell": 2,
+      "areaPx": 0
+    },
+    {
+      "share": 0.05,
+      "rate": 3,
+      "verdict": "low",
+      "cell": 3,
+      "areaPx": 0
+    },
+    {
+      "share": 0.05,
+      "rate": 4,
+      "verdict": "high",
+      "cell": 4,
+      "areaPx": 37029
+    },
+    {
+      "share": 0.05,
+      "rate": 5,
+      "verdict": "high",
+      "cell": 5,
+      "areaPx": 37029
+    },
+    {
+      "share": 0.12,
+      "rate": 1,
+      "verdict": "low",
+      "cell": 1,
+      "areaPx": 0
+    },
+    {
+      "share": 0.12,
+      "rate": 2,
+      "verdict": "low",
+      "cell": 2,
+      "areaPx": 0
+    },
+    {
+      "share": 0.12,
+      "rate": 3,
+      "verdict": "low",
+      "cell": 3,
+      "areaPx": 0
+    },
+    {
+      "share": 0.12,
+      "rate": 4,
+      "verdict": "high",
+      "cell": 4,
+      "areaPx": 185143
+    },
+    {
+      "share": 0.12,
+      "rate": 5,
+      "verdict": "high",
+      "cell": 5,
+      "areaPx": 185143
+    },
+    {
+      "share": 0.25,
+      "rate": 1,
+      "verdict": "low",
+      "cell": 1,
+      "areaPx": 0
+    },
+    {
+      "share": 0.25,
+      "rate": 2,
+      "verdict": "low",
+      "cell": 2,
+      "areaPx": 0
+    },
+    {
+      "share": 0.25,
+      "rate": 3,
+      "verdict": "low",
+      "cell": 3,
+      "areaPx": 0
+    },
+    {
+      "share": 0.25,
+      "rate": 4,
+      "verdict": "high",
+      "cell": 4,
+      "areaPx": 777600
+    },
+    {
+      "share": 0.25,
+      "rate": 5,
+      "verdict": "high",
+      "cell": 5,
+      "areaPx": 777600
+    }
+  ],
+  "effects": [
+    {
+      "id": "peony-display",
+      "dose": "default",
+      "zoom": 0,
+      "drift": 0,
+      "readings": [
+        {
+          "zoom": 0.17,
+          "blocks": 21,
+          "area": 0.111
+        },
+        {
+          "zoom": 0,
+          "blocks": 4,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 10,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 16,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 0,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 1,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 1,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 0,
+          "area": 0
+        }
+      ]
+    },
+    {
+      "id": "peony-display",
+      "dose": 0.7,
+      "zoom": 0,
+      "drift": 0,
+      "readings": [
+        {
+          "zoom": 0.01,
+          "blocks": 21,
+          "area": 0.103
+        },
+        {
+          "zoom": 0,
+          "blocks": 12,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 16,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 12,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 1,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 3,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 6,
+          "area": 0
+        },
+        {
+          "zoom": 0.64,
+          "blocks": 35,
+          "area": 0.097
+        }
+      ]
+    },
+    {
+      "id": "peony-display",
+      "dose": 0.12,
+      "zoom": 0,
+      "drift": 0,
+      "readings": [
+        {
+          "zoom": 0,
+          "blocks": 17,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 4,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 4,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 6,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 16,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 6,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 0,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 0,
+          "area": 0
+        }
+      ]
+    },
+    {
+      "id": "willow",
+      "dose": "default",
+      "zoom": 0.093,
+      "drift": 0.008,
+      "readings": [
+        {
+          "zoom": 0.17,
+          "blocks": 36,
+          "area": 0.099
+        },
+        {
+          "zoom": 0.14,
+          "blocks": 35,
+          "area": 0.109
+        },
+        {
+          "zoom": 0.05,
+          "blocks": 31,
+          "area": 0.089
+        },
+        {
+          "zoom": 0,
+          "blocks": 18,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 14,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 10,
+          "area": 0
+        },
+        {
+          "zoom": 0.58,
+          "blocks": 30,
+          "area": 0.069
+        },
+        {
+          "zoom": 0.38,
+          "blocks": 36,
+          "area": 0.079
+        }
+      ]
+    },
+    {
+      "id": "willow",
+      "dose": 0.7,
+      "zoom": 0.122,
+      "drift": 0.017,
+      "readings": [
+        {
+          "zoom": 0.15,
+          "blocks": 85,
+          "area": 0.196
+        },
+        {
+          "zoom": 0.1,
+          "blocks": 86,
+          "area": 0.196
+        },
+        {
+          "zoom": 0.02,
+          "blocks": 84,
+          "area": 0.196
+        },
+        {
+          "zoom": -0.01,
+          "blocks": 65,
+          "area": 0.237
+        },
+        {
+          "zoom": 0.01,
+          "blocks": 49,
+          "area": 0.269
+        },
+        {
+          "zoom": 0.38,
+          "blocks": 41,
+          "area": 0.079
+        },
+        {
+          "zoom": 0.29,
+          "blocks": 42,
+          "area": 0.099
+        },
+        {
+          "zoom": 0.22,
+          "blocks": 45,
+          "area": 0.099
+        }
+      ]
+    },
+    {
+      "id": "willow",
+      "dose": 0.12,
+      "zoom": 0.195,
+      "drift": 0.034,
+      "readings": [
+        {
+          "zoom": 0.59,
+          "blocks": 29,
+          "area": 0.069
+        },
+        {
+          "zoom": 0.39,
+          "blocks": 36,
+          "area": 0.079
+        },
+        {
+          "zoom": 0.29,
+          "blocks": 40,
+          "area": 0.089
+        },
+        {
+          "zoom": 0.22,
+          "blocks": 39,
+          "area": 0.099
+        },
+        {
+          "zoom": 0.17,
+          "blocks": 43,
+          "area": 0.109
+        },
+        {
+          "zoom": 0.13,
+          "blocks": 40,
+          "area": 0.109
+        },
+        {
+          "zoom": 0.06,
+          "blocks": 40,
+          "area": 0.109
+        },
+        {
+          "zoom": 0.02,
+          "blocks": 31,
+          "area": 0.269
+        }
+      ]
+    },
+    {
+      "id": "warimono",
+      "dose": "default",
+      "zoom": 0,
+      "drift": 0,
+      "readings": [
+        {
+          "zoom": 0.52,
+          "blocks": 39,
+          "area": 0.126
+        },
+        {
+          "zoom": 0,
+          "blocks": 9,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 1,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 6,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 10,
+          "area": 0
+        },
+        {
+          "zoom": 0.48,
+          "blocks": 40,
+          "area": 0.126
+        },
+        {
+          "zoom": 0,
+          "blocks": 2,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 0,
+          "area": 0
+        }
+      ]
+    },
+    {
+      "id": "warimono",
+      "dose": 0.7,
+      "zoom": 0,
+      "drift": 0,
+      "readings": [
+        {
+          "zoom": 0.5,
+          "blocks": 43,
+          "area": 0.126
+        },
+        {
+          "zoom": 0,
+          "blocks": 7,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 3,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 5,
+          "area": 0
+        },
+        {
+          "zoom": 0.56,
+          "blocks": 40,
+          "area": 0.111
+        },
+        {
+          "zoom": 0,
+          "blocks": 9,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 0,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 1,
+          "area": 0
+        }
+      ]
+    },
+    {
+      "id": "warimono",
+      "dose": 0.12,
+      "zoom": 0,
+      "drift": 0,
+      "readings": [
+        {
+          "zoom": 0.51,
+          "blocks": 35,
+          "area": 0.126
+        },
+        {
+          "zoom": 0,
+          "blocks": 8,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 0,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 0,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 0,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 3,
+          "area": 0
+        },
+        {
+          "zoom": 0,
+          "blocks": 7,
+          "area": 0
+        },
+        {
+          "zoom": 0.67,
+          "blocks": 23,
+          "area": 0.095
+        }
+      ]
+    }
+  ]
+}

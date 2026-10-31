@@ -2,10 +2,13 @@ import { describe, expect, it } from 'vitest';
 import {
   burnTime,
   burstRadius,
+  flight,
+  flightRk4,
   integrateStar,
   linearDrag,
   placeStar,
   STAR_CLASSES,
+  STAR_KINDS,
   starTable,
 } from '../src/gpu/shells/star.ts';
 
@@ -53,7 +56,7 @@ describe('star model', () => {
   });
 
   it('is placed from its table within 1% of the burst radius, in every direction', () => {
-    for (const c of Object.values(STAR_CLASSES)) {
+    for (const c of Object.values(STAR_KINDS)) {
       const table = starTable(c);
       const radius = burstRadius(table);
       let worst = 0;
@@ -94,5 +97,36 @@ describe('star model', () => {
     const tabled = error((dx, dy, t) => placeStar(table, dx, dy, t));
     expect(linear).toBeGreaterThan(0.05);
     expect(tabled * 5).toBeLessThan(linear);
+  });
+
+  it('places stars thrown slower or faster from the speeds it tabulates, within 1% of the burst', () => {
+    // Pistils, petals, a crossette's pieces, a shape's inner stars and a canister's fastest. A
+    // slower star placed as the full-speed one at a scaled time missed by up to 41% of its travel.
+    for (const c of [STAR_KINDS.medium, STAR_KINDS.piece, STAR_KINDS.willow]) {
+      const table = starTable(c);
+      const radius = burstRadius(table);
+      let worst = 0;
+      for (const share of [0.12, 0.38, 0.68, 1.1, 1.4]) {
+        const thrown = { ...c, speed: c.speed * share };
+        for (const [dx, dy] of directions.filter((_, i) => i % 2 === 0)) {
+          const times = Array.from({ length: 12 }, (_, i) => ((i + 0.5) / 12) * burnTime(c));
+          flight(thrown, dx, dy, times, 2e-4).forEach((e, i) => {
+            const s = placeStar(table, dx, dy, times[i]!, share);
+            worst = Math.max(worst, Math.hypot(e.x - s.x, e.y - s.y) / radius);
+          });
+        }
+      }
+      expect(worst).toBeLessThan(0.01);
+    }
+  });
+
+  it('is tabulated by Runge-Kutta as the small-step reference has it', () => {
+    const c = STAR_KINDS.willow;
+    const times = [0.5, 1.5, 3, 4.9];
+    const reference = flight(c, 0.6, 0.8, times, 1e-4);
+    const quick = flightRk4(c, 0.6, 0.8, times);
+    quick.forEach((q, i) => {
+      expect(Math.hypot(q.x - reference[i]!.x, q.y - reference[i]!.y)).toBeLessThan(0.05);
+    });
   });
 });

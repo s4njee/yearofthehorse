@@ -5,10 +5,11 @@ import {
   packShells,
   packTables,
   programme,
-  SHELL_CLASSES,
+  burnOf,
   SHELL_FLOATS,
   shellSpan,
-  TABLE_ANGLES,
+  starsDrawn,
+  TABLE_ROWS,
   TABLE_SAMPLES,
 } from '../src/gpu/shells/shell.ts';
 import { starColours } from '../src/gpu/spectra/emission.ts';
@@ -55,7 +56,7 @@ describe('shells', () => {
       for (const s of active) {
         const age = -s.launch - s.rise;
         expect(Math.abs(age)).toBeGreaterThanOrEqual(0.5);
-        if (age > 0.5 && age < 0.75 * SHELL_CLASSES[s.class].burn) open++;
+        if (age > 0.5 && age < 0.75 * burnOf(s)) open++;
       }
       expect(open).toBeGreaterThan(0);
     }
@@ -63,10 +64,22 @@ describe('shells', () => {
 
   it('packs records and tables in the layout the shader reads', () => {
     const list = programme(3, OPTIONS).slice(0, 3);
-    const out = new Float32Array(8 * SHELL_FLOATS);
+    const out = new Float32Array(12 * SHELL_FLOATS);
     expect(packShells(list, starColours('srgb'), out)).toBe(3);
     expect(out[1]).toBeCloseTo(list[0]!.rise, 5);
-    expect(out[7]).toBe(list[0]!.stars);
-    expect(packTables().length).toBe(3 * TABLE_ANGLES * TABLE_SAMPLES * 2);
+    expect(out[7]).toBe(starsDrawn(list[0]!));
+    expect(packTables().length).toBe(TABLE_ROWS * TABLE_SAMPLES * 2);
+  });
+
+  it('lets a design remake every shell, and caps the stars a shell with pieces can draw', () => {
+    const list = programme(4, {
+      ...OPTIONS,
+      design: (s, h) => ({ ...s, special: { kind: 'crossette', param: 0.4 }, stars: 200 + h(1) }),
+    });
+    for (const s of list) {
+      expect(s.special?.kind).toBe('crossette');
+      // A crossette's star takes five instances: itself and four pieces.
+      expect(starsDrawn(s)).toBe(48);
+    }
   });
 });

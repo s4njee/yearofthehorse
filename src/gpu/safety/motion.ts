@@ -54,6 +54,12 @@ export interface MotionReading {
   /** Blocks tracked, and how many of them the rigid fit kept. */
   blocks: number;
   inliers: number;
+  /**
+   * How much of the view the motion was read from: the bounding box of the blocks the fit kept,
+   * as a share of the frame (Year of the Horse 2.8). A burst in a corner moves a small share of
+   * the view however fast it grows; a tunnel moves all of it. Not part of the caps.
+   */
+  area: number;
 }
 
 interface Flow {
@@ -185,7 +191,7 @@ export function estimateMotion(
   const cx = width / 2;
   const cy = height / 2;
   if (flows.length < MIN_BLOCKS) {
-    return { rotation: 0, zoom: 0, drift: 0, blocks: flows.length, inliers: 0 };
+    return { rotation: 0, zoom: 0, drift: 0, blocks: flows.length, inliers: 0, area: 0 };
   }
   let kept = flows;
   let fit = fitSimilarity(kept, cx, cy);
@@ -203,6 +209,11 @@ export function estimateMotion(
     fit = fitSimilarity(kept, cx, cy);
   }
   const [tx, ty, k, w] = fit as [number, number, number, number];
+  const xs = kept.map((f) => f.x);
+  const ys = kept.map((f) => f.y);
+  const area =
+    ((Math.max(...xs) - Math.min(...xs) + BLOCK) * (Math.max(...ys) - Math.min(...ys) + BLOCK)) /
+    (width * height);
   // Screen y points down, so the fitted w turns clockwise as seen; report anticlockwise positive.
   return {
     rotation: (-Math.atan2(w, 1 + k) * 180) / Math.PI / seconds,
@@ -210,6 +221,7 @@ export function estimateMotion(
     drift: Math.hypot(tx, ty) / width / seconds,
     blocks: flows.length,
     inliers: kept.length,
+    area,
   };
 }
 

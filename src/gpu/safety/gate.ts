@@ -27,15 +27,19 @@ export function gateReasons(
   const reasons: GateReason[] = [];
   if (named(card?.flashPresets)) reasons.push('flash');
   if (named(card?.patternPresets)) reasons.push('pattern');
-  if (named(card?.motionPresets)) reasons.push('motion');
+  if (card?.motionDefaults || named(card?.motionPresets)) reasons.push('motion');
   if (typeof values.dose === 'number' && values.dose > STRONG_DOSE) reasons.push('dose');
   return reasons;
 }
 
+/** True when every setting of the effect starts behind the gate, its defaults included. */
+export const startsGated = (meta: EffectMeta) => meta.scorecard?.motionDefaults === true;
+
 const EXPECT: Record<GateReason, string> = {
   flash: 'it flashes more than three times a second over a large area',
   pattern: 'it fills much of the view with a high-contrast regular pattern',
-  motion: 'the whole view turns, zooms or drifts faster than this site’s usual limits',
+  motion:
+    'the whole view turns, zooms or drifts faster than this site’s usual limits, or bursts grow as fast as a zoom would',
   dose: 'it is set to full intensity: saturated colour and faster movement',
 };
 

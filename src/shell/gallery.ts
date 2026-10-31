@@ -1,6 +1,7 @@
 import { listEffects, onEffectsChanged } from '../effects/registry.ts';
 import { motionAllowed, onMotionChange } from './motion.ts';
 import type { EffectMeta, Tier } from '../effects/types.ts';
+import { startsGated } from '../gpu/safety/gate.ts';
 import { mountEffect, type EffectHost } from './host.ts';
 import { hrefFor, onQueryChange, readQuery, updateQuery, type QueryChanges } from './router.ts';
 import type { ShellContext, Unmount } from './types.ts';
@@ -472,7 +473,8 @@ export function mountGallery(container: HTMLElement, shell: ShellContext): Unmou
           });
           hosts.set(id, host);
         }
-        const moving = plan.animated.has(id);
+        // An effect gated at its defaults is shown held, never played unasked.
+        const moving = plan.animated.has(id) && !startsGated(card.meta);
         if (moving && host.paused) host.resume();
         else if (!moving && !host.paused) host.pause();
         card.thumb.dataset.live = moving ? 'animated' : 'still';

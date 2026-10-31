@@ -1,0 +1,57 @@
+{
+  "measuredAt": "2026-10-30T17:37:30.006Z",
+  "rows": [
+    {
+      "preset": "hanabi",
+      "dose": "default",
+      "flash": "low",
+      "cell": 1,
+      "red": 1,
+      "areaPx": 0,
+      "zoom": 0,
+      "drift": 0,
+      "peakZoom": 0.621,
+      "readingsOver": 16,
+      "largestAreaOver": 0.124
+    },
+    {
+      "preset": "hanabi",
+      "dose": 0.7,
+      "flash": "low",
+      "cell": 1,
+      "red": 1,
+      "areaPx": 0,
+      "zoom": 0,
+      "drift": 0,
+      "peakZoom": 0.582,
+      "readingsOver": 16,
+      "largestAreaOver": 0.553
+    },
+    {
+      "preset": "finale",
+      "dose": "default",
+      "flash": "low",
+      "cell": 1,
+      "red": 1,
+      "areaPx": 0,
+      "zoom": 0,
+      "drift": 0,
+      "peakZoom": 0.499,
+      "readingsOver": 16,
+      "largestAreaOver": 0.213
+    },
+    {
+      "preset": "finale",
+      "dose": 0.7,
+      "flash": "low",
+      "cell": 1,
+      "red": 1,
+      "areaPx": 0,
+      "zoom": 0,
+      "drift": 0,
+      "peakZoom": 0.79,
+      "readingsOver": 11,
+      "largestAreaOver": 0.29
+    }
+  ]
+}

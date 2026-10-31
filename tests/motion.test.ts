@@ -117,34 +117,38 @@ describe.skipIf(process.env.FLASH_SWEEP === '0')(
   'registered effects against the motion caps',
   () => {
     // At the default, and at the strong end of the slider: a visitor can drag that far unwarned.
-    it.each(listEffects().map((meta) => [meta.id]))(
-      '%s stays inside the caps up to the strong dose',
-      async (id) => {
-        for (const dose of [undefined, STRONG_DOSE]) {
-          const report = await measureMotion(id, {
-            params: dose === undefined ? undefined : { dose },
-          });
-          expect(
-            withinMotionCaps(report),
-            `${id} at dose ${dose ?? 'default'}: ${describeReport(report)} against ${JSON.stringify(MOTION_CAPS)}`,
-          ).toBe(true);
-        }
-      },
-    );
+    // An effect declared over the caps at its defaults (`motionDefaults`) starts behind the gate
+    // in every setting, so it is not held to them.
+    it.each(
+      listEffects()
+        .filter((meta) => !meta.scorecard?.motionDefaults)
+        .map((meta) => [meta.id]),
+    )('%s stays inside the caps up to the strong dose', async (id) => {
+      for (const dose of [undefined, STRONG_DOSE]) {
+        const report = await measureMotion(id, {
+          params: dose === undefined ? undefined : { dose },
+        });
+        expect(
+          withinMotionCaps(report),
+          `${id} at dose ${dose ?? 'default'}: ${describeReport(report)} against ${JSON.stringify(MOTION_CAPS)}`,
+        ).toBe(true);
+      }
+    });
 
-    it.each(listEffects().map((meta) => [meta.id, meta.scorecard?.motionPresets ?? []] as const))(
-      '%s declares every preset that goes over (%j)',
-      async (id, declared) => {
-        const effect = await loadEffect(id);
-        const over: string[] = [];
-        for (const preset of Object.keys(effect.presets ?? {})) {
-          if (!withinMotionCaps(await measureMotion(id, { preset, seconds: 2, samples: 4 }))) {
-            over.push(preset);
-          }
+    it.each(
+      listEffects()
+        .filter((meta) => !meta.scorecard?.motionDefaults)
+        .map((meta) => [meta.id, meta.scorecard?.motionPresets ?? []] as const),
+    )('%s declares every preset that goes over (%j)', async (id, declared) => {
+      const effect = await loadEffect(id);
+      const over: string[] = [];
+      for (const preset of Object.keys(effect.presets ?? {})) {
+        if (!withinMotionCaps(await measureMotion(id, { preset, seconds: 2, samples: 4 }))) {
+          over.push(preset);
         }
-        expect(over.filter((preset) => !declared.includes(preset))).toEqual([]);
-        for (const preset of declared) expect(Object.keys(effect.presets ?? {})).toContain(preset);
-      },
-    );
+      }
+      expect(over.filter((preset) => !declared.includes(preset))).toEqual([]);
+      for (const preset of declared) expect(Object.keys(effect.presets ?? {})).toContain(preset);
+    });
   },
 );

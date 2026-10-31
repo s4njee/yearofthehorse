@@ -1,0 +1,257 @@
+{
+  "measuredAt": "2026-10-30T17:36:01.594Z",
+  "rows": [
+    {
+      "programme": "programme",
+      "smoke": 1,
+      "from": 0,
+      "bursts": 23,
+      "kept": 0.902
+    },
+    {
+      "programme": "programme",
+      "smoke": 1,
+      "from": 10,
+      "bursts": 23,
+      "kept": 0.852
+    },
+    {
+      "programme": "programme",
+      "smoke": 1,
+      "from": 20,
+      "bursts": 25,
+      "kept": 0.874
+    },
+    {
+      "programme": "programme",
+      "smoke": 1,
+      "from": 30,
+      "bursts": 33,
+      "kept": 0.893
+    },
+    {
+      "programme": "programme",
+      "smoke": 1,
+      "from": 40,
+      "bursts": 25,
+      "kept": 0.901
+    },
+    {
+      "programme": "programme",
+      "smoke": 1,
+      "from": 50,
+      "bursts": 23,
+      "kept": 0.866
+    },
+    {
+      "programme": "programme",
+      "smoke": 1,
+      "from": 60,
+      "bursts": 25,
+      "kept": 0.916
+    },
+    {
+      "programme": "programme",
+      "smoke": 1,
+      "from": 70,
+      "bursts": 27,
+      "kept": 0.846
+    },
+    {
+      "programme": "programme",
+      "smoke": 1,
+      "from": 80,
+      "bursts": 26,
+      "kept": 0.814
+    },
+    {
+      "programme": "programme",
+      "smoke": 2,
+      "from": 0,
+      "bursts": 23,
+      "kept": 0.818
+    },
+    {
+      "programme": "programme",
+      "smoke": 2,
+      "from": 10,
+      "bursts": 23,
+      "kept": 0.73
+    },
+    {
+      "programme": "programme",
+      "smoke": 2,
+      "from": 20,
+      "bursts": 25,
+      "kept": 0.772
+    },
+    {
+      "programme": "programme",
+      "smoke": 2,
+      "from": 30,
+      "bursts": 33,
+      "kept": 0.802
+    },
+    {
+      "programme": "programme",
+      "smoke": 2,
+      "from": 40,
+      "bursts": 25,
+      "kept": 0.813
+    },
+    {
+      "programme": "programme",
+      "smoke": 2,
+      "from": 50,
+      "bursts": 23,
+      "kept": 0.757
+    },
+    {
+      "programme": "programme",
+      "smoke": 2,
+      "from": 60,
+      "bursts": 25,
+      "kept": 0.842
+    },
+    {
+      "programme": "programme",
+      "smoke": 2,
+      "from": 70,
+      "bursts": 27,
+      "kept": 0.726
+    },
+    {
+      "programme": "programme",
+      "smoke": 2,
+      "from": 80,
+      "bursts": 26,
+      "kept": 0.681
+    },
+    {
+      "programme": "with finale",
+      "smoke": 1,
+      "from": 0,
+      "bursts": 33,
+      "kept": 0.758
+    },
+    {
+      "programme": "with finale",
+      "smoke": 1,
+      "from": 10,
+      "bursts": 23,
+      "kept": 0.809
+    },
+    {
+      "programme": "with finale",
+      "smoke": 1,
+      "from": 20,
+      "bursts": 25,
+      "kept": 0.874
+    },
+    {
+      "programme": "with finale",
+      "smoke": 1,
+      "from": 30,
+      "bursts": 33,
+      "kept": 0.875
+    },
+    {
+      "programme": "with finale",
+      "smoke": 1,
+      "from": 40,
+      "bursts": 25,
+      "kept": 0.883
+    },
+    {
+      "programme": "with finale",
+      "smoke": 1,
+      "from": 50,
+      "bursts": 23,
+      "kept": 0.852
+    },
+    {
+      "programme": "with finale",
+      "smoke": 1,
+      "from": 60,
+      "bursts": 25,
+      "kept": 0.911
+    },
+    {
+      "programme": "with finale",
+      "smoke": 1,
+      "from": 70,
+      "bursts": 51,
+      "kept": 0.811
+    },
+    {
+      "programme": "with finale",
+      "smoke": 1,
+      "from": 80,
+      "bursts": 196,
+      "kept": 0.679
+    },
+    {
+      "programme": "with finale",
+      "smoke": 2,
+      "from": 0,
+      "bursts": 33,
+      "kept": 0.596
+    },
+    {
+      "programme": "with finale",
+      "smoke": 2,
+      "from": 10,
+      "bursts": 23,
+      "kept": 0.658
+    },
+    {
+      "programme": "with finale",
+      "smoke": 2,
+      "from": 20,
+      "bursts": 25,
+      "kept": 0.771
+    },
+    {
+      "programme": "with finale",
+      "smoke": 2,
+      "from": 30,
+      "bursts": 33,
+      "kept": 0.769
+    },
+    {
+      "programme": "with finale",
+      "smoke": 2,
+      "from": 40,
+      "bursts": 25,
+      "kept": 0.781
+    },
+    {
+      "programme": "with finale",
+      "smoke": 2,
+      "from": 50,
+      "bursts": 23,
+      "kept": 0.736
+    },
+    {
+      "programme": "with finale",
+      "smoke": 2,
+      "from": 60,
+      "bursts": 25,
+      "kept": 0.833
+    },
+    {
+      "programme": "with finale",
+      "smoke": 2,
+      "from": 70,
+      "bursts": 51,
+      "kept": 0.672
+    },
+    {
+      "programme": "with finale",
+      "smoke": 2,
+      "from": 80,
+      "bursts": 196,
+      "kept": 0.477
+    }
+  ]
+}

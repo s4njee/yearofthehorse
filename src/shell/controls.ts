@@ -14,7 +14,7 @@ import {
 } from './params-url.ts';
 import { onQueryChange, readQuery, updateQuery } from './router.ts';
 import type { Unmount } from './types.ts';
-import { gateReasons } from '../gpu/safety/gate.ts';
+import { gateReasons, startsGated } from '../gpu/safety/gate.ts';
 import { closeGate, gateAccepted, showGate } from './gate.ts';
 import { mountPaletteEditor, type PaletteEditor } from './palette-editor.ts';
 import './controls.css';
@@ -217,6 +217,7 @@ export function mountControls(container: HTMLElement, host: EffectHost): Unmount
           id: meta.id,
           preset: name,
           reasons,
+          calm: !startsGated(meta),
           onStart: () => host.resume(),
           onCalm: () => {
             setValues(presetValues(current.schema, {}));
